@@ -24,7 +24,7 @@ $ ionic cordova run ios
 
 #### Otra cabecera
 
-Substitute ios for android if not on a Mac.
+Substitute ios for android if not on a Mac. prueba
 
 ## Librería de traducciones
 Se añaden estos dos módulos:
