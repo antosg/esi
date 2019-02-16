@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CREATE TRANSACTION</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+      <ion-input type="text" placeholder="User origin" [(ngModel)]="transactionRq.userStartTransaction"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="User final" [(ngModel)]="transactionRq.userEndTransaction"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Transaction description" [(ngModel)]="transactionRq.transactionDescription"></ion-input>
+    </ion-item>
+
+  <button ion-button color="primary" full (click)="doCreatetransaction()">Create Transaction</button>
+
+    <ion-grid>
+    <ion-row *ngIf="isHiddenCard">
+      <ion-col col-12>
+        <ion-card>
+          <ion-card-header>
+            Transaction {{transactionRs._id}}
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs.userStartTransaction}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="mail" item-start></ion-icon>{{transactionRs.userEndTransaction}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="contact" item-start></ion-icon>{{transactionRs.transactionDescription}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="stats" item-start></ion-icon>{{transactionRs.creationDate}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="checkmark-circle" item-start></ion-icon>{{transactionRs.lupdateDate}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs.createdBy}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs.lupdateBy}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs.swiAccept}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs.transactionValoration}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs.transactionValDescription}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionRs._id}}</ion-item-divider>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

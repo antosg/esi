@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'SUGGESTIONS_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+        <ion-textarea placeholder="{{ 'EXPLAIN_SUGGESTION' | translate }}" rows="10" [(ngModel)]="suggestionRq.suggestion"></ion-textarea>
+  </ion-item>
+
+  <button ion-button color="primary" full (click)="doSuggestion()">{{ 'SEND_SUGGESTION' | translate }}</button>
+
+</ion-content>

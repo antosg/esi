@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ACCEPT TRANSACTION</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Transaction Identifier" [(ngModel)]="transactionId"></ion-input>
+    </ion-item>
+
+  <button ion-button color="primary" full (click)="doAcceptTransaction()">Retrieve Transaction</button>
+
+    <ion-grid>
+    <ion-row *ngIf="isHiddenCard">
+      <ion-col col-12>
+        <ion-card>
+          <ion-card-header>
+            Transaction {{transactionId}}
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transactionAcceptRs.ok}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="mail" item-start></ion-icon>{{transactionAcceptRs.nModified}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="contact" item-start></ion-icon>{{transactionAcceptRs.n}}</ion-item-divider>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

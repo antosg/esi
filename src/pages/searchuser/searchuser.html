@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{ 'CONSULTAR_REPUTACION_TITLE' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home-container">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-lines>
+          <ion-item>
+          <ion-input type="email" placeholder="{{ 'EMAIL' | translate }}" [(ngModel)]="email"></ion-input>
+          </ion-item>
+        </ion-list>
+
+
+        <button ion-button icon-left full (click)="retrieveUser()" color="default">
+        <ion-icon name="search"></ion-icon>
+        {{ 'CONSULTAR_REPUTACION' | translate }}
+       </button>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="isHiddenUserCard">
+      <ion-col col-12>
+        <ion-card>
+          <ion-card-header>
+            User {{userInfo.email}}
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{userInfo.uid}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="mail" item-start></ion-icon>{{userInfo.email}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="contact" item-start></ion-icon>{{userInfo.name}} {{userInfo.surname}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="stats" item-start></ion-icon>{{userInfo.generalReputationAvg}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="checkmark-circle" item-start></ion-icon>{{userInfo.totalCallPending}}</ion-item-divider>
+              <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{userInfo.totalReputations}}</ion-item-divider>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

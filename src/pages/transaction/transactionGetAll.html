@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>RETRIEVE ALL TRANSACTIONS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+  <button ion-button color="primary" full (click)="doGetAllTransaction()">Retrieve All Transactions</button>
+
+    <ion-grid *ngIf="isHiddenCard"> 
+    <ion-list>
+      <ion-card *ngFor="let transaction of transactionGetAllRs.transactions">
+          <ion-card-header>
+            Transaction {{transaction._id}}
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item-divider><ion-icon name="star" item-start></ion-icon>{{transaction.userStartTransaction}}</ion-item-divider>
+            <ion-item-divider><ion-icon name="mail" item-start></ion-icon>{{transaction.userEndTransaction}}</ion-item-divider>
+          <ion-item-divider><ion-icon name="contact" item-start></ion-icon>{{transaction.transactionDescription}}</ion-item-divider>
+          </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </ion-grid>
+
+</ion-content>

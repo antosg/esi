@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="doRegister()">
+        +<ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid style="height: 100%">
+
+    <ion-row justify-content-center align-items-center style="height: 100%" display="block">
+
+        <img width="100" height="100" align="center" src="assets/img/esi.png" />
+
+      <div *ngIf="showLogin">
+
+        <ion-item>
+          <ion-input type="email" placeholder="{{ 'EMAIL' | translate }}" [(ngModel)]="loginRq.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" placeholder="{{ 'PASSWORD' | translate }}" [(ngModel)]="loginRq.password"></ion-input>
+        </ion-item>
+
+        <button ion-button color="primary" full (click)="doAuthLogin()">{{ '^Iniciar sesión' | translate }}</button>
+
+        <ion-item no-lines>
+          <ion-label (click)="doResetPassword()">^¿Has olvidado tus datos?</ion-label>
+        </ion-item>
+
+      </div>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

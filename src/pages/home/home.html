@@ -1,0 +1,219 @@
+<ion-header>
+  <!--ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      HOME
+    </ion-title>
+    <button ion-button>
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-navbar-->
+  <ion-navbar>
+   <ion-buttons start>
+     <!--button ion-button (click)="navToCreateTransaction()">
+       <ion-icon name="create"></ion-icon>
+     </button-->
+   </ion-buttons>
+   <button ion-button menuToggle>
+     <ion-icon name="menu"></ion-icon>
+   </button>
+   <ion-title>
+     Home
+   </ion-title>
+   <ion-buttons end>
+     <!--button ion-button (click)="doClick()">
+       <ion-icon name="more"></ion-icon>
+     </button-->
+   </ion-buttons>
+ </ion-navbar>
+</ion-header>
+
+<ion-content class="home-container">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              {{ 'WELCOME' | translate }}  {{userInfo.name}}!!
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+    <ion-row>
+      <ion-col>
+
+        <!-- Segment in content -->
+        <ion-item>
+         ^¿En qué estado has venido hoy a trabajar?
+        </ion-item>
+        <ion-segment [(ngModel)]="InquiryRq.question1" color="primary">
+          <ion-segment-button value="4" style="background-color: green; color: white;">
+            ^Muy bien
+          </ion-segment-button>
+          <ion-segment-button value="3" style="background-color: lime; color: white;">
+            ^Bien
+          </ion-segment-button>
+          <ion-segment-button value="2" style="background-color: orange; color: white;">
+            ^Regular
+          </ion-segment-button>
+          <ion-segment-button value="1" style="background-color: red; color: white;">
+            ^Mal
+          </ion-segment-button>
+        </ion-segment>
+
+
+       <!-- ion-list radio-group [(ngModel)]="InquiryRq.question1">
+
+          <ion-list-header>
+           ^¿En qué estado has venido hoy a trabajar?
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>^Muy bien</ion-label>
+            <ion-radio value="4" color="green"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Bien</ion-label>
+            <ion-radio value="3"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Regular</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Mal</ion-label>
+            <ion-radio value="1" color="red"></ion-radio>
+          </ion-item>
+
+        </ion-list-->
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+        <!-- Segment in content -->
+        <ion-item>
+         ^¿En qué estado te has ido hoy a casa?
+        </ion-item>
+        <ion-segment [(ngModel)]="InquiryRq.question2" color="primary">
+          <ion-segment-button value="4" style="background-color: green; color: white;">
+            ^Muy bien
+          </ion-segment-button>
+          <ion-segment-button value="3" style="background-color: lime; color: white;">
+            ^Bien
+          </ion-segment-button>
+          <ion-segment-button value="2" style="background-color: orange; color: white;">
+            ^Regular
+          </ion-segment-button>
+          <ion-segment-button value="1" style="background-color: red; color: white;">
+            ^Mal
+          </ion-segment-button>
+        </ion-segment>
+
+        <!-- ion-list radio-group [(ngModel)]="InquiryRq.question2">
+
+          <ion-list-header>
+           ^¿En qué estado te has ido hoy a casa?
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>^Muy bien</ion-label>
+            <ion-radio value="4"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Bien</ion-label>
+            <ion-radio value="3"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Regular</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Mal</ion-label>
+            <ion-radio value="1"></ion-radio>
+          </ion-item>
+
+        </ion-list -->
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+        <!-- Segment in content -->
+        <ion-item>
+         ^¿Cuanto te ha gustado lo que has hecho hoy?
+        </ion-item>
+        <ion-segment [(ngModel)]="InquiryRq.question3" color="primary">
+          <ion-segment-button value="4" style="background-color: green; color: white;">
+            ^Mucho
+          </ion-segment-button>
+          <ion-segment-button value="3" style="background-color: lime; color: white;">
+            ^Normal
+          </ion-segment-button>
+          <ion-segment-button value="2" style="background-color: orange; color: white;">
+            ^Poco
+          </ion-segment-button>
+          <ion-segment-button value="1" style="background-color: red; color: white;">
+            ^Nada
+          </ion-segment-button>
+        </ion-segment>
+
+        <!--ion-list radio-group [(ngModel)]="InquiryRq.question3">
+
+          <ion-list-header>
+           ^¿Cuanto te ha gustado lo que has hecho hoy?
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>^Mucho</ion-label>
+            <ion-radio value="4"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Normal</ion-label>
+            <ion-radio value="3"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Poco</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>^Nada</ion-label>
+            <ion-radio value="1"></ion-radio>
+          </ion-item>
+
+        </ion-list -->
+
+        <ion-item>
+          <ion-textarea placeholder="^Si lo deseas aquí puedes introducir comentarios" [(ngModel)]="InquiryRq.observations"></ion-textarea>
+        </ion-item>
+
+        <button ion-button icon-left full (click)="sendInquiry()" color="default" [disabled]="!send_inquiry">
+          <ion-icon name="paper"></ion-icon>
+          ^Send Inquiry
+        </button>
+
+        <button ion-button icon-left full (click)="statistics()" color="default">
+          <ion-icon name="stats"></ion-icon>
+          ^Stats
+        </button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

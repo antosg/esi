@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "932813136702",
+    "firebase_url": "https://striped-antler-209219.firebaseio.com",
+    "project_id": "striped-antler-209219",
+    "storage_bucket": "striped-antler-209219.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932813136702:android:d6e13f670a5a5850",
+        "android_client_info": {
+          "package_name": "com.esi.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932813136702-fj61gpjskpi7rfgrrkq3jgdoqrhqmov1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD8Wm1e1ZOXavivxk5XLm1FXl0oCfUGlo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

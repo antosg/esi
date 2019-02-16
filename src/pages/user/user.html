@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'DATOS_USUARIO_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'EMAIL' | translate }}</ion-label>
+    <ion-input type="text" placeholder="" [(ngModel)]="registerRs.email" disabled></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'NOMBRE' | translate }}</ion-label>
+    <ion-input type="text" placeholder="" [(ngModel)]="registerRs.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'APELLIDOS' | translate }}</ion-label>
+    <ion-input type="text" placeholder="" [(ngModel)]="registerRs.surname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'PAIS' | translate }}</ion-label>
+    <ion-select [(ngModel)]="registerRs.country">
+      <ion-option *ngFor="let country of countries" [value] = "country.id">{{country.text}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'IDIOMA' | translate }}</ion-label>
+      <ion-select [(ngModel)]="registerRs.language">
+          <ion-option *ngFor="let language of languages" [value] = "language.id">{{language.text}}</ion-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'LAST_LOGIN' | translate }}</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY HH:mm" [(ngModel)]="registerRs.lastLogin" disabled></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>{{ 'LAST_UPDATE_DATE' | translate }}</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY HH:mm" [(ngModel)]="registerRs.lupdateDate" disabled></ion-datetime>
+  </ion-item>
+
+  <button ion-button color="primary" full (click)="doUpdateUserInfo()">{{ 'MODIFICAR_DATOS_USUARIO' | translate }}</button>
+
+</ion-content>
