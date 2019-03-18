@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+
 
 import { TranslateService } from '@ngx-translate/core';
 

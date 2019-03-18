@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+
 
 const url: string = "https://reponline.herokuapp.com";
 const login: string ="/login";

@@ -8,7 +8,7 @@ import {MapperDto} from '../../app/_mapper/index';
 import {TermsPage} from '../../pages/terms/terms';
 import {RegisterRq, RegisterRs, LoginRq, LoginRs} from '../../app/_dtos/index';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'page-register',
