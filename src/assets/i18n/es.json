@@ -36,17 +36,17 @@
   "SEND_INVITATION": "Enviar una invitación",
   "SEND_SUGGESTION": "Enviar sugerencia",
   "EXPLAIN_SUGGESTION": "Usted puede enviar sus dudas, sugerencias y quejas a nuestro correo",
-  Q1          ^¿En qué estado has venido hoy a trabajar?
-  VERY_GOOD
-  GOOD
-  REGULAR
-  BAD
-  Q2          ^¿En qué estado te has ido hoy a casa?
-  Q3         ^¿Cuanto te ha gustado lo que has hecho hoy?
-  VERY_MUCH
-  NORMAL
-  A_LITTLE_BIT
-  NOTHING
-  SEND_INQUIRY
-  STATS
+  "Q1" : "¿En qué estado has venido hoy a trabajar?",
+  "VERY_GOOD" : "Muy Bien",
+  "GOOD" : "Bien",
+  "REGULAR" : "Regular",
+  "BAD" : "Mal",
+  "Q2" : "¿En qué estado te has ido hoy a casa?",
+  "Q3" : "¿Cuanto te ha gustado lo que has hecho hoy?",
+  "VERY_MUCH" : "Mucho",
+  "NORMAL" : "Normal",
+  "A_LITTLE_BIT" : "Poco",
+  "NOTHING" : "Nada",
+  "SEND_INQUIRY" : "Enviar encuesta",
+  "STATS" : "Estadísticas"
 }
