@@ -48,51 +48,22 @@
 
         <!-- Segment in content -->
         <ion-item>
-         ^¿En qué estado has venido hoy a trabajar?
+         {{ 'Q1' | translate }}
         </ion-item>
         <ion-segment [(ngModel)]="InquiryRq.question1" color="primary">
           <ion-segment-button value="4" style="background-color: green; color: white;">
-            ^Muy bien
+            {{ 'VERY_GOOD' | translate }}
           </ion-segment-button>
           <ion-segment-button value="3" style="background-color: lime; color: white;">
-            ^Bien
+            {{ 'GOOD' | translate }}
           </ion-segment-button>
           <ion-segment-button value="2" style="background-color: orange; color: white;">
-            ^Regular
+            {{ 'REGULAR' | translate }}
           </ion-segment-button>
           <ion-segment-button value="1" style="background-color: red; color: white;">
-            ^Mal
+            {{ 'BAD' | translate }}
           </ion-segment-button>
         </ion-segment>
-
-
-       <!-- ion-list radio-group [(ngModel)]="InquiryRq.question1">
-
-          <ion-list-header>
-           ^¿En qué estado has venido hoy a trabajar?
-          </ion-list-header>
-
-          <ion-item>
-            <ion-label>^Muy bien</ion-label>
-            <ion-radio value="4" color="green"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Bien</ion-label>
-            <ion-radio value="3"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Regular</ion-label>
-            <ion-radio value="2"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Mal</ion-label>
-            <ion-radio value="1" color="red"></ion-radio>
-          </ion-item>
-
-        </ion-list-->
 
       </ion-col>
     </ion-row>
@@ -101,50 +72,22 @@
 
         <!-- Segment in content -->
         <ion-item>
-         ^¿En qué estado te has ido hoy a casa?
+        {{ 'Q2' | translate }}
         </ion-item>
         <ion-segment [(ngModel)]="InquiryRq.question2" color="primary">
           <ion-segment-button value="4" style="background-color: green; color: white;">
-            ^Muy bien
+            {{ 'VERY_GOOD' | translate }}
           </ion-segment-button>
           <ion-segment-button value="3" style="background-color: lime; color: white;">
-            ^Bien
+            {{ 'GOOD' | translate }}
           </ion-segment-button>
           <ion-segment-button value="2" style="background-color: orange; color: white;">
-            ^Regular
+            {{ 'REGULAR' | translate }}
           </ion-segment-button>
           <ion-segment-button value="1" style="background-color: red; color: white;">
-            ^Mal
+            {{ 'BAD' | translate }}
           </ion-segment-button>
         </ion-segment>
-
-        <!-- ion-list radio-group [(ngModel)]="InquiryRq.question2">
-
-          <ion-list-header>
-           ^¿En qué estado te has ido hoy a casa?
-          </ion-list-header>
-
-          <ion-item>
-            <ion-label>^Muy bien</ion-label>
-            <ion-radio value="4"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Bien</ion-label>
-            <ion-radio value="3"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Regular</ion-label>
-            <ion-radio value="2"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Mal</ion-label>
-            <ion-radio value="1"></ion-radio>
-          </ion-item>
-
-        </ion-list -->
 
       </ion-col>
     </ion-row>
@@ -153,50 +96,22 @@
 
         <!-- Segment in content -->
         <ion-item>
-         ^¿Cuanto te ha gustado lo que has hecho hoy?
+        {{ 'Q3' | translate }}
         </ion-item>
         <ion-segment [(ngModel)]="InquiryRq.question3" color="primary">
           <ion-segment-button value="4" style="background-color: green; color: white;">
-            ^Mucho
+            {{ 'VERY_MUCH' | translate }}
           </ion-segment-button>
           <ion-segment-button value="3" style="background-color: lime; color: white;">
-            ^Normal
+            {{ 'NORMAL' | translate }}
           </ion-segment-button>
           <ion-segment-button value="2" style="background-color: orange; color: white;">
-            ^Poco
+            {{ 'A_LITTLE_BIT' | translate }}
           </ion-segment-button>
           <ion-segment-button value="1" style="background-color: red; color: white;">
-            ^Nada
+            {{ 'NOTHING' | translate }}
           </ion-segment-button>
         </ion-segment>
-
-        <!--ion-list radio-group [(ngModel)]="InquiryRq.question3">
-
-          <ion-list-header>
-           ^¿Cuanto te ha gustado lo que has hecho hoy?
-          </ion-list-header>
-
-          <ion-item>
-            <ion-label>^Mucho</ion-label>
-            <ion-radio value="4"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Normal</ion-label>
-            <ion-radio value="3"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Poco</ion-label>
-            <ion-radio value="2"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>^Nada</ion-label>
-            <ion-radio value="1"></ion-radio>
-          </ion-item>
-
-        </ion-list -->
 
         <ion-item>
           <ion-textarea placeholder="^Si lo deseas aquí puedes introducir comentarios" [(ngModel)]="InquiryRq.observations"></ion-textarea>
@@ -204,12 +119,12 @@
 
         <button ion-button icon-left full (click)="sendInquiry()" color="default" [disabled]="!send_inquiry">
           <ion-icon name="paper"></ion-icon>
-          ^Send Inquiry
+          {{ 'SEND_INQUIRY' | translate }}
         </button>
 
         <button ion-button icon-left full (click)="statistics()" color="default">
           <ion-icon name="stats"></ion-icon>
-          ^Stats
+          {{ 'STATS' | translate }}
         </button>
 
       </ion-col>
