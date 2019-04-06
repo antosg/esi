@@ -114,7 +114,7 @@
         </ion-segment>
 
         <ion-item>
-          <ion-textarea placeholder="^Si lo deseas aquí puedes introducir comentarios" [(ngModel)]="InquiryRq.observations"></ion-textarea>
+          <ion-textarea placeholder="{{ 'INTRODUCE_COMMENTS_SEND_INQUIRY' | translate }}" [(ngModel)]="InquiryRq.observations"></ion-textarea>
         </ion-item>
 
         <button ion-button icon-left full (click)="sendInquiry()" color="default" [disabled]="!send_inquiry">

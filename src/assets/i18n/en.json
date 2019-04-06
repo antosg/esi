@@ -48,5 +48,6 @@
   "A_LITTLE_BIT" : "A little bit",
   "NOTHING" : "Nothing",
   "SEND_INQUIRY" : "Send inquiry",
-  "STATS" : "Stats"
+  "STATS" : "Stats",
+  "INTRODUCE_COMMENTS_SEND_INQUIRY" : "If you want, you can introduce comments here"
 }

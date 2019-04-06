@@ -48,5 +48,6 @@
   "A_LITTLE_BIT" : "Poco",
   "NOTHING" : "Nada",
   "SEND_INQUIRY" : "Enviar encuesta",
-  "STATS" : "Estadísticas"
+  "STATS" : "Estadísticas",
+  "INTRODUCE_COMMENTS_SEND_INQUIRY" : "Si lo deseas aquí puedes introducir comentarios"
 }
