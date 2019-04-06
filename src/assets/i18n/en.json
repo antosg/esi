@@ -35,5 +35,18 @@
   "CHANGES_SAVED": "Changes saved",
   "SEND_INVITATION": "Send a invitation",
   "SEND_SUGGESTION": "Send suggestion",
-  "EXPLAIN_SUGGESTION": "You can send doubts or suggestions to our email"
+  "EXPLAIN_SUGGESTION": "You can send doubts or suggestions to our email",
+  "Q1" : "In what state have you come to work today?",
+  "VERY_GOOD" : "Very good",
+  "GOOD" : "Good",
+  "REGULAR" : "Regular",
+  "BAD" : "Bad",
+  "Q2" : "In what state have you gone home today?",
+  "Q3" : "How much did you like what you have done today?",
+  "VERY_MUCH" : "Very much",
+  "NORMAL" : "Normal",
+  "A_LITTLE_BIT" : "A little bit",
+  "NOTHING" : "Nothing",
+  "SEND_INQUIRY" : "Send inquiry",
+  "STATS" : "Stats"
 }
