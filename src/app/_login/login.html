@@ -33,10 +33,10 @@
           <ion-input type="password" placeholder="{{ 'PASSWORD' | translate }}" [(ngModel)]="loginRq.password"></ion-input>
         </ion-item>
 
-        <button ion-button color="primary" full (click)="doAuthLogin()">{{ '^Iniciar sesión' | translate }}</button>
-
+        <button ion-button color="primary" full (click)="doAuthLogin()">{{ 'SIGNIN' | translate }}</button>
+        
         <ion-item no-lines>
-          <ion-label (click)="doResetPassword()">^¿Has olvidado tus datos?</ion-label>
+          <ion-label (click)="doResetPassword()">{{ 'FORGOT_PWD' | translate }}</ion-label>
         </ion-item>
 
       </div>

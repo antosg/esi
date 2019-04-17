@@ -188,13 +188,14 @@ export class MyApp {
         console.log('topic -> ', val2);
         if (val2 === "notificar"){
           console.log("fmcplugin -> notificar");
-          FCMPlugin.subscribeToTopic('notificar');
+          //FCMPlugin.subscribeToTopic('notificar');
         }
 
+/*
         FCMPlugin.onTokenRefresh(function(token){
           alert("token generado...." + token );
         });
-
+*/
     });
 
   }
