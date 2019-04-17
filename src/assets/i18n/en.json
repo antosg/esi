@@ -49,5 +49,15 @@
   "NOTHING" : "Nothing",
   "SEND_INQUIRY" : "Send inquiry",
   "STATS" : "Stats",
-  "INTRODUCE_COMMENTS_SEND_INQUIRY" : "If you want, you can introduce comments here"
+  "INTRODUCE_COMMENTS_SEND_INQUIRY" : "If you want, you can introduce comments here",
+  "ABOUT_US" : "Who we are and what we do",
+  "ABOUT_US1" : "ESI is an application that was born with the aim of helping companies to measure",
+  "ABOUT_US2" : "the satisfaction rate of their employees.",
+  "ABOUT_US3" : "We have made this app with great enthusiasm.",
+  "ABOUT_US4" : "Do not hesitate to contact us! we want to hear your opinions about the app.",
+  "ABOUT_US5" : "You can send us your doubts, suggestions and complaints from the 'Send suggestions' menu item ",
+  "ABOUT_US6" : "and we promise that we will take them into account.",
+  "ABOUT_US7" : "If you want to help us, do not hesitate to comment with your contacts this application!",
+  "ABOUT_US8" : "Thank you so much for everything!!",
+  "ABOUT_US9" : "The ESI team,"
 }
