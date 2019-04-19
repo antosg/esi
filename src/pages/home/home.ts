@@ -207,9 +207,4 @@ lineChart: any;
     this.InquiryRq.observations = "";
   }
 
-  statistics(){
-    console.log('affsdfasfadfadfafs.....');
-    this.navCtrl.push(StatisticsPage);
-  }
-
 }

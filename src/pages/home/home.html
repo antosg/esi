@@ -35,11 +35,9 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-list>
-            <ion-item>
+            <ion-label>
               {{ 'WELCOME' | translate }}  {{userInfo.name}}!!
-            </ion-item>
-          </ion-list>
+            </ion-label>
         </ion-col>
       </ion-row>
 
@@ -47,9 +45,9 @@
       <ion-col>
 
         <!-- Segment in content -->
-        <ion-item>
+        <ion-label>
          {{ 'Q1' | translate }}
-        </ion-item>
+        </ion-label>
         <ion-segment [(ngModel)]="InquiryRq.question1" color="primary">
           <ion-segment-button value="4" style="background-color: green; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'VERY_GOOD' | translate }}
@@ -71,9 +69,9 @@
       <ion-col>
 
         <!-- Segment in content -->
-        <ion-item>
+        <ion-label>
         {{ 'Q2' | translate }}
-        </ion-item>
+        </ion-label>
         <ion-segment [(ngModel)]="InquiryRq.question2" color="primary">
           <ion-segment-button value="4" style="background-color: green; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'VERY_GOOD' | translate }}
@@ -95,9 +93,9 @@
       <ion-col>
 
         <!-- Segment in content -->
-        <ion-item>
+        <ion-label>
         {{ 'Q3' | translate }}
-        </ion-item>
+        </ion-label>
         <ion-segment [(ngModel)]="InquiryRq.question3" color="primary">
           <ion-segment-button value="4" style="background-color: green; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'VERY_MUCH' | translate }}
@@ -116,9 +114,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-item>
         <ion-label>{{ 'INTRODUCE_COMMENTS_SEND_INQUIRY' | translate }}</ion-label>
-        </ion-item>
         <ion-segment>
           <ion-textarea placeholder=" " [(ngModel)]="InquiryRq.observations"></ion-textarea>
         </ion-segment>
@@ -128,10 +124,6 @@
           {{ 'SEND_INQUIRY' | translate }}
         </button>
 
-        <button ion-button icon-left full (click)="statistics()" color="default">
-          <ion-icon name="stats"></ion-icon>
-          {{ 'STATS' | translate }}
-        </button>
       </ion-col>
     </ion-row>
   </ion-grid>
