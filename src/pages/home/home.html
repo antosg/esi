@@ -51,16 +51,16 @@
          {{ 'Q1' | translate }}
         </ion-item>
         <ion-segment [(ngModel)]="InquiryRq.question1" color="primary">
-          <ion-segment-button value="4" style="background-color: green; color: white;">
+          <ion-segment-button value="4" style="background-color: green; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'VERY_GOOD' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="3" style="background-color: lime; color: white;">
+          <ion-segment-button value="3" style="background-color: lime; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'GOOD' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="2" style="background-color: orange; color: white;">
+          <ion-segment-button value="2" style="background-color: orange; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'REGULAR' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="1" style="background-color: red; color: white;">
+          <ion-segment-button value="1" style="background-color: red; color: white;border-radius: 15px 15px 15px 15px;">
             {{ 'BAD' | translate }}
           </ion-segment-button>
         </ion-segment>
@@ -75,16 +75,16 @@
         {{ 'Q2' | translate }}
         </ion-item>
         <ion-segment [(ngModel)]="InquiryRq.question2" color="primary">
-          <ion-segment-button value="4" style="background-color: green; color: white;">
+          <ion-segment-button value="4" style="background-color: green; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'VERY_GOOD' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="3" style="background-color: lime; color: white;">
+          <ion-segment-button value="3" style="background-color: lime; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'GOOD' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="2" style="background-color: orange; color: white;">
+          <ion-segment-button value="2" style="background-color: orange; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'REGULAR' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="1" style="background-color: red; color: white;">
+          <ion-segment-button value="1" style="background-color: red; color: white;border-radius: 15px 15px 15px 15px;">
             {{ 'BAD' | translate }}
           </ion-segment-button>
         </ion-segment>
@@ -99,23 +99,29 @@
         {{ 'Q3' | translate }}
         </ion-item>
         <ion-segment [(ngModel)]="InquiryRq.question3" color="primary">
-          <ion-segment-button value="4" style="background-color: green; color: white;">
+          <ion-segment-button value="4" style="background-color: green; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'VERY_MUCH' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="3" style="background-color: lime; color: white;">
+          <ion-segment-button value="3" style="background-color: lime; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'NORMAL' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="2" style="background-color: orange; color: white;">
+          <ion-segment-button value="2" style="background-color: orange; color: white;border-radius: 15px 15px 15px 15px;margin-right: 3px">
             {{ 'A_LITTLE_BIT' | translate }}
           </ion-segment-button>
-          <ion-segment-button value="1" style="background-color: red; color: white;">
+          <ion-segment-button value="1" style="background-color: red; color: white;border-radius: 15px 15px 15px 15px;">
             {{ 'NOTHING' | translate }}
           </ion-segment-button>
         </ion-segment>
-
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
         <ion-item>
-          <ion-textarea placeholder="{{ 'INTRODUCE_COMMENTS_SEND_INQUIRY' | translate }}" [(ngModel)]="InquiryRq.observations"></ion-textarea>
+        <ion-label>{{ 'INTRODUCE_COMMENTS_SEND_INQUIRY' | translate }}</ion-label>
         </ion-item>
+        <ion-segment>
+          <ion-textarea placeholder=" " [(ngModel)]="InquiryRq.observations"></ion-textarea>
+        </ion-segment>
 
         <button ion-button icon-left full (click)="sendInquiry()" color="default" [disabled]="!send_inquiry">
           <ion-icon name="paper"></ion-icon>
@@ -126,7 +132,6 @@
           <ion-icon name="stats"></ion-icon>
           {{ 'STATS' | translate }}
         </button>
-
       </ion-col>
     </ion-row>
   </ion-grid>
