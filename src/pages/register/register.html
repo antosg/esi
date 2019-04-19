@@ -51,7 +51,7 @@
       <ion-checkbox [(ngModel)]="registerRq.terms"></ion-checkbox>
     </ion-item>
 
-    <button ion-button color="primary" full (click)="doRegister()">{{ 'REGISTRO' | translate }}</button>
+    <button ion-button color="primary" full (click)="doRegister()" [disabled]="!registerRq.terms">{{ 'REGISTRO' | translate }}</button>
     <button ion-button color="primary" full (click)="doTc()">{{ 'TERMINOS_CONDICIONES' | translate }}</button>
 
 
