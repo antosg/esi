@@ -61,5 +61,7 @@
   "ABOUT_US8" : "Muchas gracias por todo!!",
   "ABOUT_US9" : "El equipo de ESI,",
   "SIGNIN" : "Entra",
-  "FORGOT_PWD" : "¿Has olvidado tu password?"
+  "FORGOT_PWD" : "¿Has olvidado tu password?",
+  "FORGOT_PWD_QUESTION": "Introduza su email",
+  "FORGOT_PWD_SEND": "Enviar email"
 }
