@@ -61,5 +61,7 @@
   "ABOUT_US8" : "Thank you so much for everything!!",
   "ABOUT_US9" : "The ESI team,",
   "SIGNIN" : "Sign in",
-  "FORGOT_PWD" : "Forgot password?"
+  "FORGOT_PWD" : "Forgot password?",
+  "FORGOT_PWD_QUESTION": "Introduce your email",
+  "FORGOT_PWD_SEND": "Send email"
 }
