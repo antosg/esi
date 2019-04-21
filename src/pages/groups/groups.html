@@ -7,12 +7,94 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>groups</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="createNewGroup()">
+        +<ion-icon name="people"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>^Mis grupos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-label>Lista de grupos de los que eres administrador</ion-label>
+
+  <ion-card>
+    <ion-card-header>
+      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
+      <ion-card-title>Dpto. web y xml</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Fch. inicio: 01-01-2019</ion-label>
+      <ion-label>Fch. Fin: -</ion-label>
+      <ion-label>^Num. componentes: 5</ion-label>
+      <ion-label>^Ult. participación: 16-04-2019</ion-label>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <button ion-button color="primary" full (click)="navEditGroup(1)">Editar</button>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <button ion-button color="primary" full (click)="navStatistics(1)">Estadísticas</button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
+      <ion-card-title>Dpto. Seguridad</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Fch. inicio: 01-01-2019</ion-label>
+      <ion-label>Fch. Fin: -</ion-label>
+      <ion-label>^Num. componentes: 3</ion-label>
+      <ion-label>^Ult. participación: 17-04-2019</ion-label>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <button ion-button color="primary" full (click)="navEditGroup(2)">Editar</button>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <button ion-button color="primary" full (click)="navStatistics(2)">Estadísticas</button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
+      <ion-card-title>Dpto. Help Desk</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Fch. inicio: 01-01-2019</ion-label>
+      <ion-label>Fch. Fin: -</ion-label>
+      <ion-label>^Num. componentes: 30</ion-label>
+      <ion-label>^Ult. participación: 17-04-2019</ion-label>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <button ion-button color="primary" full (click)="navEditGroup(3)">Editar</button>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <button ion-button color="primary" full (click)="navStatistics(3)">Estadísticas</button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
