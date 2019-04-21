@@ -41,6 +41,16 @@
         </ion-col>
       </ion-row>
 
+      <ion-row>
+        <ion-col>
+          <ion-label>{{ 'Selecciona un grupo:' | translate }}</ion-label>
+            <ion-select [(ngModel)]="InquiryRq.group">
+                <ion-option [value] = "1" selected>^Grupo1</ion-option>
+                <ion-option [value] = "2">^Grupo2</ion-option>
+            </ion-select>
+        </ion-col>
+      </ion-row>
+
     <ion-row>
       <ion-col>
 
