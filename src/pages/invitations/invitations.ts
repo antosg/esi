@@ -21,4 +21,8 @@ export class InvitationsPage {
     console.log('ionViewDidLoad InvitationsPage');
   }
 
+  accept(group){
+    console.log("has aceptado participar en el grupo -> " + group);
+  }
+
 }
