@@ -32,6 +32,8 @@ import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { ChangepasswordPage }  from '../pages/changepassword/changepassword';
 import { GroupsPage }  from '../pages/groups/groups';
 import { InvitationsPage }  from '../pages/invitations/invitations';
+import { CreateGroupPage }  from '../pages/create-group/create-group';
+import { EditGroupPage }  from '../pages/edit-group/edit-group';
 
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -69,7 +71,9 @@ export function createTranslateLoader(http: Http) {
     ResetpasswordPage,
     ChangepasswordPage,
     GroupsPage,
-    InvitationsPage
+    InvitationsPage,
+    CreateGroupPage,
+    EditGroupPage
   ],
   imports: [
     BrowserModule,
@@ -112,7 +116,9 @@ export function createTranslateLoader(http: Http) {
     ResetpasswordPage,
     ChangepasswordPage,
     GroupsPage,
-    InvitationsPage
+    InvitationsPage,
+    CreateGroupPage,
+    EditGroupPage
   ],
   providers: [
     StatusBar,
