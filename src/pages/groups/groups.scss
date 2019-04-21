@@ -1,3 +1,13 @@
 page-groups {
 
+  ion-card, card-ios, card-md {
+    margin-top: 0px  !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  ion-card-header{
+    height: 60px;
+  }
+
 }
