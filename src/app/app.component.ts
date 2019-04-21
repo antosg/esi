@@ -15,6 +15,8 @@ import { AboutPage } from '../pages/about/about';
 import { SuggestionPage } from '../pages/suggestion/suggestion';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { WeekstatsPage } from '../pages/weekstats/weekstats';
+import { GroupsPage } from '../pages/groups/groups';
+import { InvitationsPage } from '../pages/invitations/invitations';
 import { AuthService } from './_services/index';
 import { userPreferencesRq, userPreferencesRsp } from './_dtos/index';
 
