@@ -15,6 +15,8 @@ import { AboutPage } from '../pages/about/about';
 import { SuggestionPage } from '../pages/suggestion/suggestion';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { WeekstatsPage } from '../pages/weekstats/weekstats';
+import { GroupsPage } from '../pages/groups/groups';
+import { InvitationsPage } from '../pages/invitations/invitations';
 import { AuthService } from './_services/index';
 import { userPreferencesRq, userPreferencesRsp } from './_dtos/index';
 
@@ -55,11 +57,13 @@ export class MyApp {
   loggedInPages: PageInterface[] = [
     { title: 'HOME', name: 'HomePage', component: HomePage, index: 1,icon: 'home' },
     { title: 'STATISTICS', name: 'StatisticsPage', component: StatisticsPage, index: 2,icon: 'stats' },
-    { title: 'SUGGESTIONS_SLIDE', name: 'SuggestionPage', component: SuggestionPage, index: 3,icon: 'send' },
-    { title: 'USER_SLIDE', name: 'UserPage', component: UserPage, index: 4,icon: 'person' },
-    { title: 'PREFERENCES_SLIDE', name: 'PreferencesPage', component: PreferencesPage, tabComponent: PreferencesPage, index: 5, icon: 'options' },
-    { title: 'ABOUT_SLIDE', name: 'AboutPage', component: AboutPage, tabComponent: AboutPage, index: 6, icon: 'information' },
-    { title: 'LOG_OUT_SLIDE', name: 'LogoutPage', component: null, index: 7, icon: 'log-out', logsOut: true }
+    { title: 'INVITATIONS', name: 'InvitationsPage', component: InvitationsPage, index: 3,icon: 'hand' },
+    { title: 'GROUPS', name: 'GroupsPage', component: GroupsPage, index: 4,icon: 'people' },
+    { title: 'SUGGESTIONS_SLIDE', name: 'SuggestionPage', component: SuggestionPage, index: 5,icon: 'send' },
+    { title: 'USER_SLIDE', name: 'UserPage', component: UserPage, index: 6,icon: 'person' },
+    { title: 'PREFERENCES_SLIDE', name: 'PreferencesPage', component: PreferencesPage, tabComponent: PreferencesPage, index: 7, icon: 'options' },
+    { title: 'ABOUT_SLIDE', name: 'AboutPage', component: AboutPage, tabComponent: AboutPage, index: 8, icon: 'information' },
+    { title: 'LOG_OUT_SLIDE', name: 'LogoutPage', component: null, index: 9, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'LOGIN_SLIDE', name: 'LoginPage', component: LoginPage, index: 1, icon: 'log-in' },

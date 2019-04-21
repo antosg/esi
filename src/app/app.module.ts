@@ -30,6 +30,8 @@ import { StatisticsPage } from '../pages/statistics/statistics';
 import { WeekstatsPage } from '../pages/weekstats/weekstats';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { ChangepasswordPage }  from '../pages/changepassword/changepassword';
+import { GroupsPage }  from '../pages/groups/groups';
+import { InvitationsPage }  from '../pages/invitations/invitations';
 
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -65,7 +67,9 @@ export function createTranslateLoader(http: Http) {
     StatisticsPage,
     WeekstatsPage,
     ResetpasswordPage,
-    ChangepasswordPage
+    ChangepasswordPage,
+    GroupsPage,
+    InvitationsPage
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,9 @@ export function createTranslateLoader(http: Http) {
     StatisticsPage,
     WeekstatsPage,
     ResetpasswordPage,
-    ChangepasswordPage
+    ChangepasswordPage,
+    GroupsPage,
+    InvitationsPage
   ],
   providers: [
     StatusBar,

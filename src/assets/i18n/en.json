@@ -63,5 +63,6 @@
   "SIGNIN" : "Sign in",
   "FORGOT_PWD" : "Forgot password?",
   "FORGOT_PWD_QUESTION": "Introduce your email",
-  "FORGOT_PWD_SEND": "Send email"
+  "FORGOT_PWD_SEND": "Send email",
+  "CHOOSE_GROUP" : "choose the group to send the inquiry:"
 }
