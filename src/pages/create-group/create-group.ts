@@ -73,7 +73,8 @@ export class CreateGroupPage {
           handler: data => {
             console.log('ok clicked');
             if (this.checkEmail(data.email)){
-              if (this.items.indexOf(data) == 0){
+              console.log("este mail está -> " + this.items.indexOf(data));
+              if (this.items.indexOf(data) == -1){
                 this.items.push({"email":data.email});
               }else{
                 let alert = this.alertCtrl.create({
