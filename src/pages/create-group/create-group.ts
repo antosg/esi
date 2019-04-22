@@ -3,8 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { Http } from '@angular/http';
 
-import {RegisterGroupRq} from '../../app/_dtos/index';
-import {RegisterGroupRs} from '../../app/_dtos/index';
+import {RegisterGroupRq, LoginRs, RegisterGroupRs} from '../../app/_dtos/index';
 import {AuthService} from '../../app/_services/index';
 import { GroupsPage} from '../groups/groups';
 
@@ -34,7 +33,9 @@ export class CreateGroupPage {
     public authService: AuthService,
   ) {
 
-      //this.items = [{"email":"xxxxxxx@gmail.com"},{"email":"yyyyyyy@gmail.com"}];
+      let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+      console.log("loginRs -> " + loginRs);
+      this.items = [{"email":loginRs.user.email}];
 
   }
 
@@ -95,8 +96,8 @@ export class CreateGroupPage {
       }
 
       console.log('Inicio2');
-
-      if(this.registerGroupRq.invitations.length == 0) {
+      if(this.items.length == 0){
+      //if(this.registerGroupRq.invitations.length == 0) {
         let alert = this.alertCtrl.create({
           title:'^Register Error',
           subTitle:'^You need almost one user in your group',
@@ -104,6 +105,8 @@ export class CreateGroupPage {
         });
         alert.present();
         return;
+      }else{
+        this.registerGroupRq.invitations = this.items;
       }
 
       let loader = this.loadingCtrl.create({

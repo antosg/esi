@@ -35,7 +35,11 @@ export class RegisterRq {
 
 export class RegisterGroupRq {
     group: string;
-    invitations: String[];
+    invitations: emailsGroupDto[];
+}
+
+export class emailsGroupDto {
+    email: string;
 }
 
 export class RegisterGroupRs {
