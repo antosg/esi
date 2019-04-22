@@ -35,7 +35,7 @@ export interface PageInterface {
   tabComponent?: any;
 }
 
-declare const FCMPlugin: any;
+//declare const FCMPlugin: any;
 
 @Component({
   templateUrl: 'app.html',
