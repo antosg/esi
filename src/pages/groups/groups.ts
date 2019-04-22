@@ -40,4 +40,8 @@ export class GroupsPage {
     this.navCtrl.push(EditGroupPage);
   }
 
+  finishGroup(grupo){
+    console.log("finalizar grupo");
+  }
+
 }

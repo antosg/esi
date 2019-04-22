@@ -1,3 +1,27 @@
 page-create-group {
 
+  .list .item {
+    background-color: #E7E8EB !important;
+    font-size: 14px !important;
+    height: 5px !important;
+    margin-top: 0px !important;
+  }
+
+  .list .ion-label{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .list {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    border-width: 1px;
+    border-style: ridge;
+    border-color: #C0C0C0;
+  }
+
 }

@@ -46,7 +46,7 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('Hello RegisterPage Page');
   }
-S
+
   doTc(){
     console.log("dentro de tos....");
     this.navCtrl.push(TermsPage);
