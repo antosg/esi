@@ -45,8 +45,12 @@ export class emailsGroupDto {
 export class RegisterGroupRs {
     group: string;
     admin: string;
-    creation_date: string;
-    last_update_date: string;
+    creationDate: string;
+    lupdateDate: string;
+    createdBy : string;
+    lupdateBy: string;
+    fecini : string;
+    fecfin : string;
     members_number: string;
     members: memberGroupDto[];
 }
@@ -55,8 +59,10 @@ export class memberGroupDto {
     email: string;
     fecini: string;
     fecfin: string;
-    creation_date: string;
-    last_update_date : string;
+    creationDate: string;
+    lupdateDate : string;
+    createdBy : string;
+    lupdateBy: string;
     last_inquiry: string;
     inquiry_number: string;
 }

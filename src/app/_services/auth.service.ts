@@ -14,7 +14,7 @@ let registerUri = 'user';
 //recover user info endpointl
 let userInfoUri = 'api/v1/user/';
 
-let createGroupUrl = 'api/v1/groups';
+let createGroupUrl = 'api/v1/transaction/groups';
 
 let userInfoPreferences = 'api/v1/user/preferences/'
 
