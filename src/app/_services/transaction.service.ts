@@ -11,6 +11,8 @@ let createTransactionUrl = 'api/v1/transaction';
 //transaction info endpoint
 let getTransactionInfoUrl= 'api/v1/transaction/';
 
+let getTransactionGroupsInfoUrl= 'api/v1/transaction/groups/';
+
 let getTransactionByDay= 'api/v1/transactions/ByDay/';
 
 let getTransactionByWeek= 'api/v1/transactions/ByWeek/';
@@ -71,6 +73,23 @@ export class TransactionService {
         headers.append('Content-Type', 'application/json');
 
         this.http.get(apiUrl + getTransactionByDay + day, {headers: headers})
+          .subscribe(res => {
+            resolve(res.json());
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+  getGroups(){
+    return new Promise((resolve, reject) => {
+        let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+        let headers = new Headers();
+        headers.append('x-access-token', loginRs.token);
+        headers.append('x-key', loginRs.user.email);
+        headers.append('Content-Type', 'application/json');
+
+        this.http.get(apiUrl + getTransactionGroupsInfoUrl + loginRs.user.email, {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
