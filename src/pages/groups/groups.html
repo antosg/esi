@@ -33,21 +33,15 @@
       <ion-label>^Num. componentes: 5</ion-label>
       <ion-label>^Ult. participación: 16-04-2019</ion-label>
       <ion-row>
-        <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="navEditGroup(1)">Editar</button>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="navStatistics(1)">Estadísticas</button>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="finishGroup(1)">Finalizar</button>
-          </ion-item>
-        </ion-col>
+          <ion-col>
+              <button ion-button color="primary" full (click)="navEditGroup(1)"><ion-icon name="create"></ion-icon></button>
+          </ion-col>
+          <ion-col>
+              <button ion-button color="primary" full (click)="navStatistics(1)"><ion-icon name="stats"></ion-icon></button>
+          </ion-col>
+          <ion-col>
+              <button ion-button color="primary" full (click)="finishGroup(1)"><ion-icon name="trash"></ion-icon></button>
+          </ion-col>
       </ion-row>
     </ion-card-content>
   </ion-card>
@@ -64,19 +58,13 @@
       <ion-label>^Ult. participación: 17-04-2019</ion-label>
       <ion-row>
         <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="navEditGroup(2)">Editar</button>
-          </ion-item>
+            <button ion-button color="primary" full (click)="navEditGroup(2)"><ion-icon name="create"></ion-icon></button>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="navStatistics(2)">Estadísticas</button>
-          </ion-item>
+            <button ion-button color="primary" full (click)="navStatistics(2)"><ion-icon name="stats"></ion-icon></button>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="finishGroup(1)">Finalizar</button>
-          </ion-item>
+            <button ion-button color="primary" full (click)="finishGroup(2)"><ion-icon name="trash"></ion-icon></button>
         </ion-col>
       </ion-row>
     </ion-card-content>
@@ -94,14 +82,13 @@
       <ion-label>^Ult. participación: 17-04-2019</ion-label>
       <ion-row>
         <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="navEditGroup(3)">Editar</button>
-          </ion-item>
+            <button ion-button color="primary" full (click)="navEditGroup(3)"><ion-icon name="create"></ion-icon></button>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="navStatistics(3)">Estadísticas</button>
-          </ion-item>
+            <button ion-button color="primary" full (click)="navStatistics(3)"><ion-icon name="stats"></ion-icon></button>
+        </ion-col>
+        <ion-col>
+            <button ion-button color="primary" full (click)="finishGroup(3)"><ion-icon name="trash"></ion-icon></button>
         </ion-col>
       </ion-row>
     </ion-card-content>
