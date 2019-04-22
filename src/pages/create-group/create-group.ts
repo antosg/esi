@@ -182,7 +182,7 @@ export class CreateGroupPage {
         });
         alert.present();
         loader.dismissAll();
-        this.navCtrl.setRoot(GroupsPage);
+        this.navCtrl.pop();
       }, (err:IDetailedError<string[]>) => {
         loader.dismissAll();
         let errors = '';
