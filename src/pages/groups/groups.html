@@ -22,76 +22,35 @@
 
   <ion-label>Lista de grupos de los que eres administrador</ion-label>
 
-  <ion-card>
-    <ion-card-header>
-      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
-      <ion-card-title>Dpto. web y xml</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>Fch. inicio: 01-01-2019</ion-label>
-      <ion-label>Fch. Fin: -</ion-label>
-      <ion-label>^Num. componentes: 5</ion-label>
-      <ion-label>^Ult. participación: 16-04-2019</ion-label>
-      <ion-row>
-          <ion-col>
-              <button ion-button color="primary" full (click)="navEditGroup(1)"><ion-icon name="create"></ion-icon></button>
-          </ion-col>
-          <ion-col>
-              <button ion-button color="primary" full (click)="navStatistics(1)"><ion-icon name="stats"></ion-icon></button>
-          </ion-col>
-          <ion-col>
-              <button ion-button color="primary" full (click)="finishGroup(1)"><ion-icon name="trash"></ion-icon></button>
-          </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
-      <ion-card-title>Dpto. Seguridad</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>Fch. inicio: 01-01-2019</ion-label>
-      <ion-label>Fch. Fin: -</ion-label>
-      <ion-label>^Num. componentes: 3</ion-label>
-      <ion-label>^Ult. participación: 17-04-2019</ion-label>
-      <ion-row>
-        <ion-col>
-            <button ion-button color="primary" full (click)="navEditGroup(2)"><ion-icon name="create"></ion-icon></button>
-        </ion-col>
-        <ion-col>
-            <button ion-button color="primary" full (click)="navStatistics(2)"><ion-icon name="stats"></ion-icon></button>
-        </ion-col>
-        <ion-col>
-            <button ion-button color="primary" full (click)="finishGroup(2)"><ion-icon name="trash"></ion-icon></button>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
-      <ion-card-title>Dpto. Help Desk</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>Fch. inicio: 01-01-2019</ion-label>
-      <ion-label>Fch. Fin: -</ion-label>
-      <ion-label>^Num. componentes: 30</ion-label>
-      <ion-label>^Ult. participación: 17-04-2019</ion-label>
-      <ion-row>
-        <ion-col>
-            <button ion-button color="primary" full (click)="navEditGroup(3)"><ion-icon name="create"></ion-icon></button>
-        </ion-col>
-        <ion-col>
-            <button ion-button color="primary" full (click)="navStatistics(3)"><ion-icon name="stats"></ion-icon></button>
-        </ion-col>
-        <ion-col>
-            <button ion-button color="primary" full (click)="finishGroup(3)"><ion-icon name="trash"></ion-icon></button>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
+  <ion-list *ngFor="let group of groups">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ group.group }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>^Administrador: {{ group.admin }}</ion-label>
+        <ion-label>^Fec ini: {{ group.fecini }}</ion-label>
+        <ion-label>^Fec fin: {{ group.fecfin }}</ion-label>
+        <ion-label>^Num. componentes: {{ group.members_number }}</ion-label>
+        <ion-row>
+            <ion-col>
+                <button ion-button color="primary" full (click)="navEditGroup(group)">
+                  <ion-icon name="create"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button color="primary" full (click)="navStatistics(group)">
+                  <ion-icon name="stats"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button color="primary" full (click)="finishGroup(group)">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 
 </ion-content>
