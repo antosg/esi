@@ -34,7 +34,7 @@ export class CreateGroupPage {
     public authService: AuthService,
   ) {
 
-      this.items = [{"email":"xxxxxxx@gmail.com"},{"email":"yyyyyyy@gmail.com"}];
+      //this.items = [{"email":"xxxxxxx@gmail.com"},{"email":"yyyyyyy@gmail.com"}];
 
   }
 
@@ -111,7 +111,7 @@ export class CreateGroupPage {
       });
       loader.present();
 
-      this.authService.register(this.registerGroupRq).then((registerResult) => {
+      this.authService.registerGroup(this.registerGroupRq).then((registerResult) => {
         console.log('ok register');
         //no hace falta logearse, porque el usuario está inactivo hasta que reciba el mail y haga
         //click en el enlace, sólo después de esa acción el usuario está en disposición de hacer

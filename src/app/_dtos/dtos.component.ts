@@ -33,6 +33,30 @@ export class RegisterRq {
     terms: boolean;
 }
 
+export class RegisterGroupRq {
+    group: string;
+    invitations: String[];
+}
+
+export class RegisterGroupRs {
+    group: string;
+    admin: string;
+    creation_date: string;
+    last_update_date: string;
+    members_number: string;
+    members: memberGroupDto[];
+}
+
+export class memberGroupDto {
+    email: string;
+    fecini: string;
+    fecfin: string;
+    creation_date: string;
+    last_update_date : string;
+    last_inquiry: string;
+    inquiry_number: string;
+}
+
 export class suggestionRq {
     suggestion: string;
 }
@@ -74,7 +98,7 @@ export class userPreferencesRq {
 
 export class userPreferencesRsp {
   language: string;
-  preferences : any; 
+  preferences : any;
 }
 
 export class TransactionRq {

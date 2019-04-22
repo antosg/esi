@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {LoginRq, LoginRs, RegisterRq, RegisterRs, modifyUserRq, ResetRq, userPreferencesRq } from '../_dtos/index';
+import {LoginRq, LoginRs, RegisterRq, RegisterRs, RegisterGroupRq, modifyUserRq, ResetRq, userPreferencesRq } from '../_dtos/index';
 
 //client url
 let apiUrl = 'https://reponline.herokuapp.com/';
@@ -13,6 +13,8 @@ let logoutUri = 'logout';
 let registerUri = 'user';
 //recover user info endpointl
 let userInfoUri = 'api/v1/user/';
+
+let createGroupUrl = 'api/v1/groups';
 
 let userInfoPreferences = 'api/v1/user/preferences/'
 
@@ -63,6 +65,23 @@ export class AuthService {
         headers.append('Content-Type', 'application/json');
 
         this.http.post(apiUrl+registerUri, JSON.stringify(data), {headers: headers})
+          .subscribe(res => {
+            resolve(res.json());
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+  registerGroup(data: RegisterGroupRq) {
+    return new Promise((resolve, reject) => {
+        let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+        let headers = new Headers();
+        headers.append('x-access-token', loginRs.token);
+        headers.append('x-key', loginRs.user.email);
+        headers.append('Content-Type', 'application/json');
+
+        this.http.post(apiUrl+createGroupUrl, JSON.stringify(data), {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
