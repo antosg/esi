@@ -25,6 +25,7 @@ export class GroupsPage {
 
   RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
   groups: any = [];
+  number_of_groups : 3;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -71,7 +72,15 @@ export class GroupsPage {
 
   createNewGroup(){
     console.log("creando un nuevo grupo");
-    this.navCtrl.push(CreateGroupPage);
+    if (this.number_of_groups <= this.groups.length){
+      this.navCtrl.push(CreateGroupPage);
+    }else{
+      let alert = this.alertCtrl.create({
+        title:'^En la versión free no pueden crearse más de tres grupos',
+        buttons:['OK']
+      });
+      alert.present();
+    }
   }
 
   navEditGroup(grupo){
