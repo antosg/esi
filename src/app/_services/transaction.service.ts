@@ -119,7 +119,7 @@ export class TransactionService {
     });
   }
 
-  acceptOrNotInvitation(invitation_id){
+  acceptOrNotInvitation(inv){
     return new Promise((resolve, reject) => {
         let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
         let headers = new Headers();
@@ -127,7 +127,7 @@ export class TransactionService {
         headers.append('x-key', loginRs.user.email);
         headers.append('Content-Type', 'application/json');
 
-        this.http.get(apiUrl + getTransactionInvitationsAcceptInfoUrl + invitation_id, {headers: headers})
+        this.http.put(apiUrl + getTransactionInvitationsAcceptInfoUrl + inv._id, inv, {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {

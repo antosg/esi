@@ -59,7 +59,7 @@ export class InvitationsPage {
   accept(inv){
     console.log("has aceptado participar en el grupo -> " + inv._id);
     console.log("Datos -> " + JSON.stringify(inv));
-    this.TransactionService.acceptOrNotInvitation(inv._id).then((registerResult) => {
+    this.TransactionService.acceptOrNotInvitation(inv).then((registerResult) => {
       console.log('ok acceptOrNotInvitation');
       //let registerData: any = registerResult;
       //this.RegisterInvitationsRs = registerData;
