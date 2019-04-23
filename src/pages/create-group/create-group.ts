@@ -24,6 +24,7 @@ export class CreateGroupPage {
  items : Array<{ email: string}>;
  registerGroupRq: RegisterGroupRq = new RegisterGroupRq();
  registerGroupRs: RegisterGroupRs = new RegisterGroupRs();
+ number_members_group : 8;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -52,55 +53,63 @@ export class CreateGroupPage {
   }
 
   async addInvitation() {
-    let alert = this.alertController.create({
-      title: 'Introduce el mail del usuario al que quieres invitar a participar en tu grupo',
-      inputs: [
-        {
-          name: 'email',
-          placeholder: ''
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: data => {
-            console.log('Cancel clicked');
+    if (this.number_members_group <= this.items.length){
+      let alert = this.alertController.create({
+        title: 'Introduce el mail del usuario al que quieres invitar a participar en tu grupo',
+        inputs: [
+          {
+            name: 'email',
+            placeholder: ''
           }
-        },
-        {
-          text: 'OK',
-          handler: data => {
-            console.log('ok clicked');
-            if (this.checkEmail(data.email)){
-              var itemAux = { "email" : data.email };
-              let pos = this.items.map(function(e) { return e.email; }).indexOf(data.email);
-              console.log(itemAux + " este mail está -> " + pos);
-              if (pos == -1){
-                this.items.push({"email":data.email});
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'OK',
+            handler: data => {
+              console.log('ok clicked');
+              if (this.checkEmail(data.email)){
+                var itemAux = { "email" : data.email };
+                let pos = this.items.map(function(e) { return e.email; }).indexOf(data.email);
+                console.log(itemAux + " este mail está -> " + pos);
+                if (pos == -1){
+                  this.items.push({"email":data.email});
+                }else{
+                  let alert = this.alertCtrl.create({
+                    title:'^Invitation Error',
+                    subTitle:"The email already exists!",
+                    buttons:['OK']
+                  });
+                  alert.present();
+                  return;
+                }
               }else{
                 let alert = this.alertCtrl.create({
                   title:'^Invitation Error',
-                  subTitle:"The email already exists!",
+                  subTitle:"It's not a valid email",
                   buttons:['OK']
                 });
                 alert.present();
                 return;
               }
-            }else{
-              let alert = this.alertCtrl.create({
-                title:'^Invitation Error',
-                subTitle:"It's not a valid email",
-                buttons:['OK']
-              });
-              alert.present();
-              return;
             }
           }
-        }
-      ]
-    });
-    alert.present();
+        ]
+      });
+      alert.present();
+    }else{
+      let alert = this.alertCtrl.create({
+        title:'^En la versión free no es posible añadir más de 8 miembros a un grupo',
+        buttons:['OK']
+      });
+      alert.present();
+    }
   }
 
   checkEmail(emailAddress) {
