@@ -17,44 +17,24 @@
 
   <ion-label>Lista de invitaciones a participar en grupos</ion-label>
 
-  <ion-card>
-    <ion-card-header>
-      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
-      <ion-card-title>Dpto. RSC</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>Administrador: XXXXXXXX</ion-label>
-      <ion-label>Fch. inicio: 01-01-2019</ion-label>
-      <ion-label>^Num. componentes: 5</ion-label>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="accept(1)">Aceptar</button>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <!-- ion-card-subtitle>Card Subtitle</ion-card-subtitle -->
-      <ion-card-title>Dpto. Fygc</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>Administrador: YYYYYYYY</ion-label>
-      <ion-label>Fch. inicio: 01-01-2019</ion-label>
-      <ion-label>Fch. Fin: -</ion-label>
-      <ion-label>^Num. componentes: 8</ion-label>
-      <ion-label>^Ult. participación: 17-04-2019</ion-label>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <button ion-button color="primary" full (click)="accept(2)">Aceptar</button>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
+  <ion-list *ngFor="let inv of invitations">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ inv.group }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>^Administrador: {{ inv.admin }}</ion-label>
+        <ion-label>^Fch. inicio: {{ inv.creationDate }}</ion-label>
+        <ion-label>^Num. componentes: {{ inv.members_number }}</ion-label>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <button ion-button color="primary" full (click)="accept(inv)">^Participar</button>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 
 </ion-content>

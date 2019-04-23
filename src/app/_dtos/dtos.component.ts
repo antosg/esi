@@ -67,6 +67,19 @@ export class memberGroupDto {
     inquiry_number: string;
 }
 
+export class RegisterInvitationsRs {
+    id: string;
+    group : string;
+    admin: string;
+    user : string;
+    members_number : string;
+    creationDate: string;
+    lupdateDate: string;
+    createdBy : string;
+    lupdateBy: string;
+    acceptedByUser: string;
+}
+
 export class suggestionRq {
     suggestion: string;
 }
