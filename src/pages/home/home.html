@@ -45,9 +45,9 @@
         <ion-col>
           <ion-label>{{ 'CHOOSE_GROUP' | translate }}</ion-label>
             <ion-select [(ngModel)]="InquiryRq.group">
-                <ion-option [value] = "1" selected>Dpto. Desarrollo</ion-option>
-                <ion-option [value] = "2">Dpto. código ético</ion-option>
-                <ion-option [value] = "2">Dpto. medios pagos</ion-option>
+              <ion-option *ngFor="let myGroup of myGroups; let i = index" value="myGroup._id" [selected]="i===0">
+                  {{ myGroup.group }}
+              </ion-option>
             </ion-select>
         </ion-col>
       </ion-row>

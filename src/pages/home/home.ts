@@ -12,6 +12,7 @@ import { RepServices } from '../../app/providers/rep-services';
 import { StatisticsPage } from '../../pages/statistics/statistics';
 import {TransactionService} from '../../app/_services/index';
 import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { Http } from '@angular/http';
 
 import {LoginRs, UserLoginDto, LoginRq, TransactionRs} from '../../app/_dtos/index';
 import {AuthService} from '../../app/_services/index';
@@ -34,6 +35,7 @@ export class HomePage {
   InquiryRq: InquiryRq = new InquiryRq();
   transactionRs: TransactionRs = new TransactionRs();
   send_inquiry = false;
+  myGroups: any;
 
 //  @ViewChild('barCanvas') barCanvas;
 //@ViewChild('doughnutCanvas') doughnutCanvas;
@@ -55,7 +57,8 @@ lineChart: any;
     public repServices: RepServices,
     public events: Events,
     public authService: AuthService,
-    public mapper: MapperDto) {
+    public mapper: MapperDto,
+    public http: Http) {
 
       var today = new Date();
       var last_inquiry = new Date(Number(localStorage.getItem('lastInquirySent')));
@@ -93,6 +96,32 @@ lineChart: any;
 
       //avisamos de que el usuario se ha logeado para cambiar la imagen también en el menú...
       this.events.publish('user:logged');
+
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+  }
+
+  ionViewWillEnter(){
+    this.refreshGroupSelect();
+  };
+
+  refreshGroupSelect(){
+    let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+    let headers = new Headers();
+    headers.append('x-access-token', loginRs.token);
+    headers.append('x-key', loginRs.user.email);
+    headers.append('Content-Type', 'application/json');
+
+    this.http.get('https://reponline.herokuapp.com/masters/myGroups/' + loginRs.user.email, {headers: headers})
+      .subscribe(res => {
+        //resolve(res.json());
+        console.log("mi respuesta es -> " + res.json());
+        this.myGroups = res.json();
+      }, (err) => {
+        console.error(err);
+      });
 
   }
 

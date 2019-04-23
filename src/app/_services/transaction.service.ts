@@ -13,6 +13,10 @@ let getTransactionInfoUrl= 'api/v1/transaction/';
 
 let getTransactionGroupsInfoUrl= 'api/v1/transaction/groups/';
 
+let getTransactionInvitationsInfoUrl= 'api/v1/transaction/invitations/';
+
+let getTransactionInvitationsAcceptInfoUrl= 'api/v1/transaction/invitation/acceptOrNotInvitation/';
+
 let getTransactionByDay= 'api/v1/transactions/ByDay/';
 
 let getTransactionByWeek= 'api/v1/transactions/ByWeek/';
@@ -90,6 +94,40 @@ export class TransactionService {
         headers.append('Content-Type', 'application/json');
 
         this.http.get(apiUrl + getTransactionGroupsInfoUrl + loginRs.user.email, {headers: headers})
+          .subscribe(res => {
+            resolve(res.json());
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+  getInvitations(){
+    return new Promise((resolve, reject) => {
+        let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+        let headers = new Headers();
+        headers.append('x-access-token', loginRs.token);
+        headers.append('x-key', loginRs.user.email);
+        headers.append('Content-Type', 'application/json');
+
+        this.http.get(apiUrl + getTransactionInvitationsInfoUrl, {headers: headers})
+          .subscribe(res => {
+            resolve(res.json());
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+  acceptOrNotInvitation(inv){
+    return new Promise((resolve, reject) => {
+        let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+        let headers = new Headers();
+        headers.append('x-access-token', loginRs.token);
+        headers.append('x-key', loginRs.user.email);
+        headers.append('Content-Type', 'application/json');
+
+        this.http.put(apiUrl + getTransactionInvitationsAcceptInfoUrl + inv._id, inv, {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
