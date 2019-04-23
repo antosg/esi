@@ -85,7 +85,7 @@ export class GroupsPage {
 
   navEditGroup(grupo){
     console.log("editando el grupo -> " + grupo);
-    this.navCtrl.push(EditGroupPage);
+    this.navCtrl.push(EditGroupPage, { grupo } );
   }
 
   finishGroup(grupo){
