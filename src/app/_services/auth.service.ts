@@ -98,7 +98,7 @@ export class AuthService {
         headers.append('x-key', loginRs.user.email);
         headers.append('Content-Type', 'application/json');
 
-        this.http.put(apiUrl+createGroupUrl, JSON.stringify(data), {headers: headers})
+        this.http.put(apiUrl+createGroupUrl+data.group, JSON.stringify(data), {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
