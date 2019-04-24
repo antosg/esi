@@ -24,7 +24,7 @@ export class CreateGroupPage {
  items : Array<{ email: string}>;
  registerGroupRq: RegisterGroupRq = new RegisterGroupRq();
  registerGroupRs: RegisterGroupRs = new RegisterGroupRs();
- number_members_group : 8;
+ number_members_group = 7; //comparo contra 7 porque el length del array comienza por cero....
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -53,7 +53,7 @@ export class CreateGroupPage {
   }
 
   async addInvitation() {
-    if (this.number_members_group <= this.items.length){
+    if (this.number_members_group >= this.items.length){
       let alert = this.alertController.create({
         title: 'Introduce el mail del usuario al que quieres invitar a participar en tu grupo',
         inputs: [
