@@ -34,7 +34,7 @@
         <ion-label>^Num. componentes: {{ group.members_number }}</ion-label>
         <ion-row>
             <ion-col>
-                <button ion-button color="primary" full (click)="navEditGroup(group)">
+                <button ion-button color="primary" full (click)="navEditGroup(group)" [disabled]="group.fecfin">
                   <ion-icon name="create"></ion-icon>
                 </button>
             </ion-col>
@@ -44,7 +44,7 @@
                 </button>
             </ion-col>
             <ion-col>
-                <button ion-button color="primary" full (click)="finishGroup(group)">
+                <button ion-button color="primary" full (click)="finishGroup(group)" [disabled]="group.fecfin">
                   <ion-icon name="trash"></ion-icon>
                 </button>
             </ion-col>
