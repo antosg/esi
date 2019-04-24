@@ -88,8 +88,28 @@ export class GroupsPage {
     this.navCtrl.push(EditGroupPage, { grupo } );
   }
 
-  finishGroup(grupo){
-    console.log("finalizar grupo");
+  async finishGroup(grupo){
+    const alert = await this.alertCtrl.create({
+      title: '^Cerrar grupo!',
+      subTitle: '^¿desea finalizar el grupo? podrá seguir consultando estádísticas pero no podrá modificarlo',
+      buttons: [
+        {
+          text: '^Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: '^Confirmar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }
