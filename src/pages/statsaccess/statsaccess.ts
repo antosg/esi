@@ -21,4 +21,16 @@ export class StatsaccessPage {
     console.log('ionViewDidLoad StatsaccessPage');
   }
 
+  dayStats(){
+    console.log("go to day stats");
+  }
+
+  weekStats(){
+    console.log("go to week stats");
+  }
+
+  monthStats(){
+    console.log("go to month stats");
+  }
+
 }

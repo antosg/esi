@@ -34,7 +34,7 @@ import { GroupsPage }  from '../pages/groups/groups';
 import { InvitationsPage }  from '../pages/invitations/invitations';
 import { CreateGroupPage }  from '../pages/create-group/create-group';
 import { EditGroupPage }  from '../pages/edit-group/edit-group';
-import { StatsaccessPage } from '../pages/Statsaccess/Statsaccess';
+import { StatsaccessPage } from '../pages/statsaccess/statsaccess';
 
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';

@@ -57,9 +57,9 @@ export class MyApp {
   ];
   loggedInPages: PageInterface[] = [
     { title: 'HOME', name: 'HomePage', component: HomePage, index: 1,icon: 'home' },
-    { title: 'STATISTICS', name: 'StatisticsPage', component: StatsaccessPage, index: 4,icon: 'stats' },
     { title: 'INVITATIONS', name: 'InvitationsPage', component: InvitationsPage, index: 2,icon: 'hand' },
     { title: 'MY GROUPS', name: 'GroupsPage', component: GroupsPage, index: 3,icon: 'people' },
+    { title: 'STATISTICS', name: 'StatisticsPage', component: StatsaccessPage, index: 4,icon: 'stats' },
     { title: 'SUGGESTIONS_SLIDE', name: 'SuggestionPage', component: SuggestionPage, index: 5,icon: 'send' },
     { title: 'USER_SLIDE', name: 'UserPage', component: UserPage, index: 6,icon: 'person' },
     { title: 'PREFERENCES_SLIDE', name: 'PreferencesPage', component: PreferencesPage, tabComponent: PreferencesPage, index: 7, icon: 'options' },
