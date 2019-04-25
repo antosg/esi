@@ -34,6 +34,7 @@ import { GroupsPage }  from '../pages/groups/groups';
 import { InvitationsPage }  from '../pages/invitations/invitations';
 import { CreateGroupPage }  from '../pages/create-group/create-group';
 import { EditGroupPage }  from '../pages/edit-group/edit-group';
+import { StatsaccessPage } from '../pages/statsaccess/statsaccess';
 
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -73,7 +74,8 @@ export function createTranslateLoader(http: Http) {
     GroupsPage,
     InvitationsPage,
     CreateGroupPage,
-    EditGroupPage
+    EditGroupPage,
+    StatsaccessPage
   ],
   imports: [
     BrowserModule,
@@ -118,7 +120,8 @@ export function createTranslateLoader(http: Http) {
     GroupsPage,
     InvitationsPage,
     CreateGroupPage,
-    EditGroupPage
+    EditGroupPage,
+    StatsaccessPage
   ],
   providers: [
     StatusBar,
