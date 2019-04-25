@@ -3,6 +3,7 @@ export class InquiryRq {
     question2: number;
     question3: number;
     observations: string;
+    group : string;
 }
 
 export class InquiriesByDayRsp {

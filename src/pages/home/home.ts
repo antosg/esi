@@ -171,18 +171,21 @@ lineChart: any;
     console.log(this.InquiryRq.question2);
     console.log(this.InquiryRq.question3);
     console.log(this.InquiryRq.observations);
+    console.log(this.InquiryRq.group);
+
 
     if (
         (this.InquiryRq.question1 == undefined) ||
         (this.InquiryRq.question2 == undefined) ||
         (this.InquiryRq.question3 == undefined) ||
+        (this.InquiryRq.group == undefined) ||
         (this.InquiryRq.question1 == 0) ||
         (this.InquiryRq.question2 == 0) ||
         (this.InquiryRq.question3 == 0)
     ){
       let alert = this.alertCtrl.create({
         title:'^Send inquiry error',
-        subTitle:'^All fields are rquired',
+        subTitle:'^All fields are required',
         buttons:['OK']
       });
       alert.present();
@@ -193,6 +196,7 @@ lineChart: any;
       content: "^Sending inquiry..."
     });
     loader.present();
+
 
     this.transactionService.sendInquiry(this.InquiryRq).then((registerResult) => {
       console.log('ok sending inqury...');
@@ -234,6 +238,7 @@ lineChart: any;
     this.InquiryRq.question2 = 0;
     this.InquiryRq.question3 = 0;
     this.InquiryRq.observations = "";
+    this.InquiryRq.group = "";
   }
 
 }
