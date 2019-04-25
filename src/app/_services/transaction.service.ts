@@ -63,6 +63,7 @@ export class TransactionService {
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
+            console.log("salta por el error...");
             reject(err);
           });
     });

@@ -171,18 +171,21 @@ lineChart: any;
     console.log(this.InquiryRq.question2);
     console.log(this.InquiryRq.question3);
     console.log(this.InquiryRq.observations);
+    console.log(this.InquiryRq.group);
+
 
     if (
         (this.InquiryRq.question1 == undefined) ||
         (this.InquiryRq.question2 == undefined) ||
         (this.InquiryRq.question3 == undefined) ||
+        (this.InquiryRq.group == undefined) ||
         (this.InquiryRq.question1 == 0) ||
         (this.InquiryRq.question2 == 0) ||
         (this.InquiryRq.question3 == 0)
     ){
       let alert = this.alertCtrl.create({
         title:'^Send inquiry error',
-        subTitle:'^All fields are rquired',
+        subTitle:'^All fields are required',
         buttons:['OK']
       });
       alert.present();
@@ -194,6 +197,7 @@ lineChart: any;
     });
     loader.present();
 
+
     this.transactionService.sendInquiry(this.InquiryRq).then((registerResult) => {
       console.log('ok sending inqury...');
       loader.dismiss();
@@ -202,29 +206,33 @@ lineChart: any;
       this.transactionRs = registerData;
       let alert = this.alertCtrl.create({
         title:'^Thanks for your help...',
-        subTitle:"^recuerda que no podrás enviar otra encuesta hasta mañana!!",
+        subTitle:"^recuerda que no podrás enviar otra encuesta para el mismo grupo hasta mañana!!",
         buttons:['OK']
       });
       alert.present();
-      this.send_inquiry = false;
+      //this.send_inquiry = false;
       this.disabledForm();
     }, (err:IDetailedError<string[]>) => {
+      console.log("si salta por el error aquí debería ver algo..." + err.toString());
       loader.dismissAll();
       let errors = '';
-      for(let e of err.details) {
-        console.log(e);
+      let e = "";
+      //for(let e of err.details) {
+        //console.log("message -" + err.error);
         if(e === 'required_userOrigin') errors += 'User from is required.<br/>';
         if(e === 'required_UserEnd') errors += 'User to is required.<br/>';
         if(e === 'requires_description') errors += 'You need to feed transaction descriptiondesription.<br/>';
         //don't need to worry about conflict_username
         if(e === 'invalid_email') errors += 'Your email address isn\'t valid.';
-      }
+        if(e === 'inquiry_exists') errors += 'Your email address isn\'t valid.';
+      //}
       let alert = this.alertCtrl.create({
         title:'^Sending inquiry Error',
         subTitle:errors,
         buttons:['OK']
       });
       alert.present();
+      this.disabledForm();
     });
 
   }
@@ -234,6 +242,7 @@ lineChart: any;
     this.InquiryRq.question2 = 0;
     this.InquiryRq.question3 = 0;
     this.InquiryRq.observations = "";
+    this.InquiryRq.group = "";
   }
 
 }
