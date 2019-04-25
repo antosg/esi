@@ -7,6 +7,7 @@ import { IDetailedError } from '@ionic/cloud-angular';
 import { StatisticsPage } from '../../pages/statistics/statistics';
 import { CreateGroupPage }  from '../../pages/create-group/create-group';
 import { EditGroupPage }  from '../../pages/edit-group/edit-group';
+import { StatsaccessPage } from '../../pages/statsaccess/statsaccess';
 
 import {RegisterGroupRs} from '../../app/_dtos/index';
 
@@ -68,7 +69,7 @@ export class GroupsPage {
 
   navStatistics(grupo){
     console.log("el grupo es -> " + grupo);
-    this.navCtrl.push(StatisticsPage);
+    this.navCtrl.push(StatsaccessPage, { grupo });
   }
 
   createNewGroup(){

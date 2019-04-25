@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
+
 /**
  * Generated class for the StatsaccessPage page.
  *
@@ -14,7 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StatsaccessPage {
 
+  RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    //busco si a esta página llego desde el menú o desde mis grupos...
+    console.log(this.navParams.data);
+    console.log(this.navParams.data.grupo);
+    this.RegisterGroupRs = this.navParams.data.grupo;
+    console.log("nombre grupo -> " + this.RegisterGroupRs.group);
+
   }
 
   ionViewDidLoad() {
