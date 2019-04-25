@@ -17,14 +17,21 @@ import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
 export class StatsaccessPage {
 
   RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
+  textGraphic : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     //busco si a esta página llego desde el menú o desde mis grupos...
     console.log(this.navParams.data);
-    console.log(this.navParams.data.grupo);
-    this.RegisterGroupRs = this.navParams.data.grupo;
-    console.log("nombre grupo -> " + this.RegisterGroupRs.group);
+    if (this.navParams.data.grupo != null || this.navParams.data.grupo != undefined){
+      console.log(this.navParams.data.grupo);
+      this.RegisterGroupRs = this.navParams.data.grupo;
+      console.log("nombre grupo -> " + this.RegisterGroupRs.group);
+      this.textGraphic = "para " + this.RegisterGroupRs.group
+    }else{
+      console.log("nombre grupo -> null");
+      this.textGraphic = "de tus grupos";
+    }
 
   }
 
