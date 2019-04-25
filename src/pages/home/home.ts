@@ -206,29 +206,33 @@ lineChart: any;
       this.transactionRs = registerData;
       let alert = this.alertCtrl.create({
         title:'^Thanks for your help...',
-        subTitle:"^recuerda que no podrás enviar otra encuesta hasta mañana!!",
+        subTitle:"^recuerda que no podrás enviar otra encuesta para el mismo grupo hasta mañana!!",
         buttons:['OK']
       });
       alert.present();
-      this.send_inquiry = false;
+      //this.send_inquiry = false;
       this.disabledForm();
     }, (err:IDetailedError<string[]>) => {
+      console.log("si salta por el error aquí debería ver algo..." + err.toString());
       loader.dismissAll();
       let errors = '';
-      for(let e of err.details) {
-        console.log(e);
+      let e = "";
+      //for(let e of err.details) {
+        //console.log("message -" + err.error);
         if(e === 'required_userOrigin') errors += 'User from is required.<br/>';
         if(e === 'required_UserEnd') errors += 'User to is required.<br/>';
         if(e === 'requires_description') errors += 'You need to feed transaction descriptiondesription.<br/>';
         //don't need to worry about conflict_username
         if(e === 'invalid_email') errors += 'Your email address isn\'t valid.';
-      }
+        if(e === 'inquiry_exists') errors += 'Your email address isn\'t valid.';
+      //}
       let alert = this.alertCtrl.create({
         title:'^Sending inquiry Error',
         subTitle:errors,
         buttons:['OK']
       });
       alert.present();
+      this.disabledForm();
     });
 
   }
