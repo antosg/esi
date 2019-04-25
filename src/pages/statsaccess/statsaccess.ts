@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
+import { StatisticsPage } from '../../pages/statistics/statistics';
 
 /**
  * Generated class for the StatsaccessPage page.
@@ -18,6 +19,8 @@ export class StatsaccessPage {
 
   RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
   textGraphic : any;
+  isGroup : any;
+      mygroup : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -28,9 +31,11 @@ export class StatsaccessPage {
       this.RegisterGroupRs = this.navParams.data.grupo;
       console.log("nombre grupo -> " + this.RegisterGroupRs.group);
       this.textGraphic = "para " + this.RegisterGroupRs.group
+      this.isGroup = true;
     }else{
       console.log("nombre grupo -> null");
       this.textGraphic = "de tus grupos";
+      this.isGroup = false;
     }
 
   }
@@ -41,6 +46,12 @@ export class StatsaccessPage {
 
   dayStats(){
     console.log("go to day stats");
+    if (this.isGroup){
+      this.navCtrl.push(StatisticsPage, { item : this.RegisterGroupRs});
+    }else{
+      this.navCtrl.push(StatisticsPage, {});
+    }
+
   }
 
   weekStats(){

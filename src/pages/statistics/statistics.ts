@@ -6,6 +6,7 @@ import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { NavController , AlertController, LoadingController, ToastController, MenuController} from 'ionic-angular';
 
 import { WeekstatsPage } from '../../pages/weekstats/weekstats';
+import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
 
 import { Chart } from 'chart.js';
 
@@ -38,11 +39,24 @@ export class StatisticsPage {
 
   InquiriesByDayRsp: InquiriesByDayRsp = new InquiriesByDayRsp();
   MyDatePicker : any;
+  RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
+  isGroup : any;
 
   constructor(public navCtrl: NavController,
     public transactionService: TransactionService,
     public alertCtrl: AlertController,
     public navParams: NavParams) {
+
+      console.log("item..." + navParams.get('item'));
+      if (navParams.get('item') != null || navParams.get('item') != undefined){
+        console.log(navParams.get('item'));
+        this.RegisterGroupRs = navParams.get('item');
+        console.log("nombre grupo -> " + this.RegisterGroupRs.group);
+        this.isGroup = true;
+      }else{
+        console.log("nombre grupo -> null");
+        this.isGroup = false;
+      }
 
   }
 
