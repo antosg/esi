@@ -69,7 +69,7 @@ export class TransactionService {
     });
   }
 
-  getInquiriesByDay(day){
+  getInquiriesByDay(day, group){
     return new Promise((resolve, reject) => {
         let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
         let headers = new Headers();
@@ -77,7 +77,10 @@ export class TransactionService {
         headers.append('x-key', loginRs.user.email);
         headers.append('Content-Type', 'application/json');
 
-        this.http.get(apiUrl + getTransactionByDay + day, {headers: headers})
+        var chain = day + "-" + group; //esto es una cerdada...
+        console.log("chain -> " + chain);
+
+        this.http.get(apiUrl + getTransactionByDay + chain, {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
