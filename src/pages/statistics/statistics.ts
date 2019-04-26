@@ -41,6 +41,7 @@ export class StatisticsPage {
 
   InquiriesByDayRsp: InquiriesByDayRsp = new InquiriesByDayRsp();
   MyDatePicker : any;
+  groupSelect : any;
   RegisterGroupStatsRs: RegisterGroupStatsRs = new RegisterGroupStatsRs();
   RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
   groups: any = [];
@@ -120,8 +121,8 @@ export class StatisticsPage {
     var data3 = [];
     var numInq = 0;
 
-    if (this.idGroup != ""){
-      this.transactionService.getInquiriesByDay(dayN, this.idGroup).then((registerResult) => {
+    if (this.groupSelect != "" && this.groupSelect != null){
+      this.transactionService.getInquiriesByDay(dayN, this.groupSelect).then((registerResult) => {
         console.log('getting inquiriesByDay...');
         console.log(registerResult);
         let InquiriesByDayRsp: any = registerResult;

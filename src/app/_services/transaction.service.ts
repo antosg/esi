@@ -78,6 +78,7 @@ export class TransactionService {
         headers.append('Content-Type', 'application/json');
 
         var chain = day + "#" + group; //esto es una cerdada...
+        console.log("chain -> " + chain);
 
         this.http.get(apiUrl + getTransactionByDay + chain, {headers: headers})
           .subscribe(res => {
