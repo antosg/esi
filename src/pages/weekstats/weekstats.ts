@@ -108,7 +108,7 @@ export class WeekstatsPage {
     console.log("weeki -> " + weeki);
 
     if (this.groupSelect != "" && this.groupSelect != null){
-      this.transactionService.getInquiriesByWeek(weeki).then((registerResult) => {
+      this.transactionService.getInquiriesByWeek(weeki, this.groupSelect).then((registerResult) => {
         console.log('getting inquiriesByDay...');
         console.log(registerResult);
         let InquiriesByWeekRsp: any = registerResult;
@@ -136,6 +136,7 @@ export class WeekstatsPage {
           linea_aceptabilidad = InquiriesByWeekRsp.line_aceptabilidad;
           this.cc = "";
           this.num_cc = 0;
+          /*
           for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
               var a2 = this.InquiriesByWeekRsp.comments[i];
               for (var j = 0; j < a2.length; j++) {
@@ -146,7 +147,7 @@ export class WeekstatsPage {
                   this.cc = this.cc + "············· \n";
                 }
               }
-          }
+          }*/
         }
 
         this.doughnutChart1 = new Chart(this.doughnutCanvas1.nativeElement, {
