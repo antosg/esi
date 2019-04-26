@@ -42,6 +42,6 @@ export class InquiriesByWeekRsp {
   line_q2 : any[];
   line_q3 : any[];
   line_aceptabilidad : any[];
-  comments : any[];
+  comments : commentDto[];
   lastupdatedate : Date;
 }

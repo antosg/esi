@@ -136,8 +136,20 @@ export class WeekstatsPage {
           linea_aceptabilidad = InquiriesByWeekRsp.line_aceptabilidad;
           this.cc = "";
           this.num_cc = 0;
-          /*
+
+          //console.log("comentario -> " + JSON.stringify(this.InquiriesByDayRsp.comments[i]));
+          //this.commentDto = this.InquiriesByDayRsp.comments[i];
+          //this.num_cc++;
+          //this.cc = this.cc + this.commentDto.comment + '\n';
+          //this.cc = this.cc + "············· \n";
+
           for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
+              console.log("comentario -> " + JSON.stringify(this.InquiriesByWeekRsp.comments[i]));
+              this.commentDto = this.InquiriesByWeekRsp.comments[i];
+              this.num_cc++;
+              this.cc = this.cc + this.commentDto.comment + '\n';
+              this.cc = this.cc + "············· \n";
+              /*
               var a2 = this.InquiriesByWeekRsp.comments[i];
               for (var j = 0; j < a2.length; j++) {
                 var arrRetCarro = a2[j].split("\n")
@@ -146,8 +158,8 @@ export class WeekstatsPage {
                   this.cc = this.cc + arrRetCarro[k] + '\n';
                   this.cc = this.cc + "············· \n";
                 }
-              }
-          }*/
+              }*/
+          }
         }
 
         this.doughnutChart1 = new Chart(this.doughnutCanvas1.nativeElement, {
