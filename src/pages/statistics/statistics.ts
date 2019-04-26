@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import {TransactionService} from '../../app/_services/index';
-import {InquiriesByDayRsp} from '../../app/dtos/inquiry';
+import {InquiriesByDayRsp, commentDto} from '../../app/dtos/inquiry';
 import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { NavController , AlertController, LoadingController, ToastController, MenuController} from 'ionic-angular';
 
@@ -46,6 +46,7 @@ export class StatisticsPage {
   RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
   groups: any = [];
   idGroup : any;
+  commentDto : commentDto = new commentDto();
 
   constructor(public navCtrl: NavController,
     public transactionService: TransactionService,
@@ -61,6 +62,7 @@ export class StatisticsPage {
         this.RegisterGroupStatsRs = navParams.get('item');
         console.log("nombre grupo1 -> " + this.RegisterGroupStatsRs.group);
         this.idGroup = this.RegisterGroupStatsRs._id;
+        this.groupSelect = this.RegisterGroupStatsRs._id;
       }else{
         console.log("nombre grupo -> null");
         this.idGroup = "";
@@ -142,13 +144,11 @@ export class StatisticsPage {
           this.cc = "";
           this.num_cc = 0;
           for (var i = 0; i < this.InquiriesByDayRsp.comments.length; i++) {
-            console.log("comentario -> " + this.InquiriesByDayRsp.comments[i]);
-            var arrRetCarro = this.InquiriesByDayRsp.comments[i].split("\n")
-            for (var j = 0; j < arrRetCarro.length; j++) {
-              this.num_cc++;
-              this.cc = this.cc + arrRetCarro[j] + '\n';
-              this.cc = this.cc + "············· \n";
-            }
+            console.log("comentario -> " + JSON.stringify(this.InquiriesByDayRsp.comments[i]));
+            this.commentDto = this.InquiriesByDayRsp.comments[i];
+            this.num_cc++;
+            this.cc = this.cc + this.commentDto.comment + '\n';
+            this.cc = this.cc + "············· \n";
           }
         }
 
@@ -284,7 +284,7 @@ export class StatisticsPage {
   */
         if (numInq == 0){
           let alert = this.alertCtrl.create({
-            title:'^No hay encuestas por día de mostrar todavía...',
+            title:'^No hay encuestas para la fecha seleccionada',
             subTitle:null,
             buttons:['OK']
           });

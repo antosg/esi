@@ -17,8 +17,14 @@ export class InquiriesByDayRsp {
   x100_res_q2 : any[];
   x100_res_q3 : any[];
   line : any[];
-  comments : any[];
+  comments : commentDto[];
   lastupdatedate : Date;
+}
+
+export class commentDto {
+  comment : string;
+  swiGood : string;
+  categories : any[]
 }
 
 export class InquiriesByWeekRsp {
