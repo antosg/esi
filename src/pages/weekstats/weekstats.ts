@@ -96,6 +96,7 @@ export class WeekstatsPage {
     var linea_q3 = [];
     var linea_aceptabilidad = [];
     var numInq = 0;
+    var arrC = [];
 
     console.log("MyDatePicker -> " + this.MyDatePicker);
     var x = new Date();
@@ -137,28 +138,16 @@ export class WeekstatsPage {
           this.cc = "";
           this.num_cc = 0;
 
-          //console.log("comentario -> " + JSON.stringify(this.InquiriesByDayRsp.comments[i]));
-          //this.commentDto = this.InquiriesByDayRsp.comments[i];
-          //this.num_cc++;
-          //this.cc = this.cc + this.commentDto.comment + '\n';
-          //this.cc = this.cc + "············· \n";
-
           for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
-              console.log("comentario -> " + JSON.stringify(this.InquiriesByWeekRsp.comments[i]));
-              this.commentDto = this.InquiriesByWeekRsp.comments[i];
+            console.log("comentario " + i + " -> " + JSON.stringify(this.InquiriesByWeekRsp.comments[i]));
+            var arrC = this.InquiriesByWeekRsp.comments[i];
+            console.log("coentario en < " + arrC.length);
+            for (var k = 0; k < arrC.length; k++){
+              this.commentDto = arrC[k];
               this.num_cc++;
               this.cc = this.cc + this.commentDto.comment + '\n';
               this.cc = this.cc + "············· \n";
-              /*
-              var a2 = this.InquiriesByWeekRsp.comments[i];
-              for (var j = 0; j < a2.length; j++) {
-                var arrRetCarro = a2[j].split("\n")
-                for (var k = 0; k < arrRetCarro.length; k++) {
-                  this.num_cc++;
-                  this.cc = this.cc + arrRetCarro[k] + '\n';
-                  this.cc = this.cc + "············· \n";
-                }
-              }*/
+            }
           }
         }
 
