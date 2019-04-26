@@ -37,44 +37,36 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-
-
-    <ion-grid>
-
       <ion-row>
         <ion-col>
-          <ion-label>{{ 'CHOOSE_GROUP_STATS' | translate }}</ion-label>
-            <ion-select [(ngModel)]="group">
-                <ion-option [value] = "1" selected>Dpto. Web y XML</ion-option>
-                <ion-option [value] = "2">Dpto. Seguridad</ion-option>
-                <ion-option [value] = "2">Dpto. Help Desk</ion-option>
+          <ion-label>{{ 'SELECT_GROUP' | translate }}</ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-select [(ngModel)]="group" (ionChange)="ionViewDidLoad()">
+              <ion-option *ngFor="let myGroup of groups" [selected]="myGroup._id == idGroup" value="{{ myGroup._id }}">
+                  {{ myGroup.group }}
+              </ion-option>
             </ion-select>
         </ion-col>
       </ion-row>
-
       <ion-row>
         <ion-col>
-          <ion-item>
-            <ion-label color="primary" stacked>{{ 'NUM_INQUIRIES' | translate }}</ion-label>
-            <ion-input type="text" placeholder="" [(ngModel)]="InquiriesByDayRsp.num_inquiries" disabled></ion-input>
-          </ion-item>
+          <ion-label>^Fecha</ion-label>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label color="primary" stacked>{{ 'LASTUPDATEDATE' | translate }}</ion-label>
-            <ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="InquiriesByDayRsp.lastupdatedate" disabled></ion-datetime>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label>puede seleccionar otra fecha</ion-label>
             <ion-datetime (ionChange)="ionViewDidLoad()" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="MyDatePicker"></ion-datetime>
           </ion-item>
         </ion-col>
+        <ion-col>
+          <ion-label>{{ 'NUM_INQUIRIES' | translate }}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input type="text" placeholder="" [(ngModel)]="InquiriesByDayRsp.num_inquiries" disabled></ion-input>
+          </ion-item>
+        </ion-col>
       </ion-row>
-    </ion-grid>
 
     <ion-card>
       <ion-card-header>

@@ -90,7 +90,8 @@ lineChart: any;
       this.repServices.retrieveUserRep(loginRs.user.email).then(data => {
         console.log(data);
         this.userInfo = data; //this.userInfoMapper.data2UserInfo(data);
-        console.log(this.userInfo);
+        
+        console.log("la información del usuario es -> " + this.userInfo);
         return data;
       });
 

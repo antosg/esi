@@ -55,6 +55,20 @@ export class RegisterGroupRs {
     members: memberGroupDto[];
 }
 
+export class RegisterGroupStatsRs {
+    _id : string;
+    group: string;
+    admin: string;
+    creationDate: string;
+    lupdateDate: string;
+    createdBy : string;
+    lupdateBy: string;
+    fecini : string;
+    fecfin : string;
+    members_number: string;
+    members: memberGroupDto[];
+}
+
 export class memberGroupDto {
     email: string;
     fecini: string;
