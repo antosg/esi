@@ -43,20 +43,50 @@
           <ion-label>^Weekly stats</ion-label>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>{{ '^SELECT_GROUP' | translate }}</ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-select [(ngModel)]="groupSelect" (ionChange)="ionViewDidLoad()">
+              <ion-option *ngFor="let myGroup of groups" [selected]="myGroup._id == idGroup" value="{{ myGroup._id }}">
+                  {{ myGroup.group }}
+              </ion-option>
+            </ion-select>
+        </ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label color="primary" stacked>{{ '^WEEK' | translate }}</ion-label>
+            <ion-label>^otra fecha</ion-label>
+            <ion-datetime (ionChange)="ionViewDidLoad()" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="MyDatePicker"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label color="primary" stacked>{{ '^WEEK' | translate }}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-item>
             <ion-input type="text" placeholder="" [(ngModel)]="InquiriesByWeekRsp.week" disabled></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
+          <ion-label color="primary" stacked>{{ '^NUM_INQUIRIES' | translate }}</ion-label>
+        </ion-col>
+        <ion-col>
           <ion-item>
-            <ion-label color="primary" stacked>{{ '^NUM_INQUIRIES' | translate }}</ion-label>
             <ion-input type="text" placeholder="" [(ngModel)]="InquiriesByWeekRsp.num_inquiries" disabled></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-auto>
+            <ion-label color="primary" stacked>{{ '^LASTUPDATEDATE' | translate }}</ion-label>
+        </ion-col>
+        <ion-col>
           <ion-item>
             <ion-label color="primary" stacked>{{ '^LASTUPDATEDATE' | translate }}</ion-label>
             <!--ion-input type="text" placeholder="" [(ngModel)]="InquiriesByWeekRsp.lastupdatedate" disabled></ion-input-->
@@ -64,14 +94,7 @@
           </ion-item>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label>puede seleccionar otra semana</ion-label>
-            <ion-datetime (ionChange)="ionViewDidLoad()" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="MyDatePicker"></ion-datetime>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+
     </ion-grid>
 
     <ion-card>

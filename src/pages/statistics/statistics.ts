@@ -326,8 +326,11 @@ export class StatisticsPage {
   }
 
   weekStats(){
-    console.log('affsdfasfadfadfafs.....');
-    this.navCtrl.push(WeekstatsPage);
+    if (this.idGroup){
+      this.navCtrl.push(WeekstatsPage, { item : this.RegisterGroupRs});
+    }else{
+      this.navCtrl.push(WeekstatsPage, {});
+    }
   }
 
 }

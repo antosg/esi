@@ -7,6 +7,9 @@ import { NavController , AlertController, LoadingController, ToastController, Me
 
 import { Chart } from 'chart.js';
 
+import {RegisterGroupStatsRs, LoginRs, RegisterGroupRs} from '../../app/_dtos/index';
+import {InquiriesByDayRsp, commentDto} from '../../app/dtos/inquiry';
+
 /**
  * Generated class for the StatisticsPage page.
  *
@@ -36,11 +39,49 @@ export class WeekstatsPage {
 
   InquiriesByWeekRsp: InquiriesByWeekRsp = new InquiriesByWeekRsp();
   MyDatePicker : any;
+  groupSelect : any;
+  RegisterGroupStatsRs: RegisterGroupStatsRs = new RegisterGroupStatsRs();
+  RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
+  groups: any = [];
+  idGroup : any;
+  commentDto : commentDto = new commentDto();
 
   constructor(public navCtrl: NavController,
     public transactionService: TransactionService,
     public alertCtrl: AlertController,
     public navParams: NavParams) {
+
+      console.log("item..." + navParams.get('item'));
+      if (navParams.get('item') != null || navParams.get('item') != undefined){
+        console.log("navParms -> " + navParams.get('item'));
+        console.log("navParms -> " + navParams.get('item')._id);
+        console.log(navParams.get('item'));
+        this.RegisterGroupStatsRs = navParams.get('item');
+        console.log("nombre grupo1 -> " + this.RegisterGroupStatsRs.group);
+        this.idGroup = this.RegisterGroupStatsRs._id;
+        this.groupSelect = this.RegisterGroupStatsRs._id;
+      }else{
+        console.log("nombre grupo -> null");
+        this.idGroup = "";
+      }
+
+  }
+
+  ionViewWillEnter(){
+    this.refreshGroupSelect();
+  };
+
+  refreshGroupSelect(){
+    console.log('ionViewDidLoad GroupsPage');
+    this.transactionService.getGroups().then((registerResult) => {
+        console.log('ok getGroups');
+        let registerData: any = registerResult;
+        this.RegisterGroupRs = registerData;
+        console.log("Los grupos para las estadísticas son -> " + JSON.stringify(this.RegisterGroupRs));
+        this.groups = this.RegisterGroupRs;
+      }, (err:IDetailedError<string[]>) => {
+          console.log(err);
+      });
 
   }
 
@@ -66,267 +107,268 @@ export class WeekstatsPage {
     var weeki = currentWeekNumber(x);
     console.log("weeki -> " + weeki);
 
-    this.transactionService.getInquiriesByWeek(weeki).then((registerResult) => {
-      console.log('getting inquiriesByDay...');
-      console.log(registerResult);
-      let InquiriesByWeekRsp: any = registerResult;
-      this.InquiriesByWeekRsp = InquiriesByWeekRsp;
+    if (this.groupSelect != "" && this.groupSelect != null){
+      this.transactionService.getInquiriesByWeek(weeki).then((registerResult) => {
+        console.log('getting inquiriesByDay...');
+        console.log(registerResult);
+        let InquiriesByWeekRsp: any = registerResult;
+        this.InquiriesByWeekRsp = InquiriesByWeekRsp;
 
-      if (InquiriesByWeekRsp == "undefined" || InquiriesByWeekRsp == undefined || InquiriesByWeekRsp == null){
-        console.log("noy hay ninguna encuesta...");
-        data1 = [0, 0, 0, 0];
-        data2 = [0, 0, 0, 0];
-        data3 = [0, 0, 0, 0];
-      }else{
-        console.log("acabo de cargar " + InquiriesByWeekRsp.num_inquiries + " encuestas....");
-        numInq = InquiriesByWeekRsp.num_inquiries;
-        data1 = this.InquiriesByWeekRsp.x100_res_q1;
-        data2 = this.InquiriesByWeekRsp.x100_res_q2;
-        data3 = this.InquiriesByWeekRsp.x100_res_q3;
-        days = this.InquiriesByWeekRsp.day;
-        var dd = [];
-        for (var i = 0; i < days.length; i++) {
-            dd.push(days[i].toString().substring(6) + '/' + days[i].toString().substring(4, 6));
-        }
-        linea_q1 = InquiriesByWeekRsp.line_q1;
-        linea_q2 = InquiriesByWeekRsp.line_q2;
-        linea_q3 = InquiriesByWeekRsp.line_q3;
-        linea_aceptabilidad = InquiriesByWeekRsp.line_aceptabilidad;
-        this.cc = "";
-        this.num_cc = 0;
-        for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
-            var a2 = this.InquiriesByWeekRsp.comments[i];
-            for (var j = 0; j < a2.length; j++) {
-              var arrRetCarro = a2[j].split("\n")
-              for (var k = 0; k < arrRetCarro.length; k++) {
-                this.num_cc++;
-                this.cc = this.cc + arrRetCarro[k] + '\n';
-                this.cc = this.cc + "············· \n";
+        if (InquiriesByWeekRsp == "undefined" || InquiriesByWeekRsp == undefined || InquiriesByWeekRsp == null){
+          console.log("noy hay ninguna encuesta...");
+          data1 = [0, 0, 0, 0];
+          data2 = [0, 0, 0, 0];
+          data3 = [0, 0, 0, 0];
+        }else{
+          console.log("acabo de cargar " + InquiriesByWeekRsp.num_inquiries + " encuestas....");
+          numInq = InquiriesByWeekRsp.num_inquiries;
+          data1 = this.InquiriesByWeekRsp.x100_res_q1;
+          data2 = this.InquiriesByWeekRsp.x100_res_q2;
+          data3 = this.InquiriesByWeekRsp.x100_res_q3;
+          days = this.InquiriesByWeekRsp.day;
+          var dd = [];
+          for (var i = 0; i < days.length; i++) {
+              dd.push(days[i].toString().substring(6) + '/' + days[i].toString().substring(4, 6));
+          }
+          linea_q1 = InquiriesByWeekRsp.line_q1;
+          linea_q2 = InquiriesByWeekRsp.line_q2;
+          linea_q3 = InquiriesByWeekRsp.line_q3;
+          linea_aceptabilidad = InquiriesByWeekRsp.line_aceptabilidad;
+          this.cc = "";
+          this.num_cc = 0;
+          for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
+              var a2 = this.InquiriesByWeekRsp.comments[i];
+              for (var j = 0; j < a2.length; j++) {
+                var arrRetCarro = a2[j].split("\n")
+                for (var k = 0; k < arrRetCarro.length; k++) {
+                  this.num_cc++;
+                  this.cc = this.cc + arrRetCarro[k] + '\n';
+                  this.cc = this.cc + "············· \n";
+                }
               }
-            }
+          }
         }
-      }
 
-      this.doughnutChart1 = new Chart(this.doughnutCanvas1.nativeElement, {
+        this.doughnutChart1 = new Chart(this.doughnutCanvas1.nativeElement, {
 
-          type: 'doughnut',
-          data: {
-              labels: ["^Muy bien", "^Bien", "^Regular", "^Mal"],
-              datasets: [{
-                  label: '# # ^de votos',
-                  //data: [12, 19, 3, 5],
-                  data: data1,
-                  backgroundColor: [
-                    'rgba(34, 139, 34, 0.5)',
-                    'rgba(144, 238, 144, 0.5)',
-                    'rgba(255, 165, 0, 0.5)',
-                    'rgba(255, 0, 0, 0.5)'
-                  ],
-                  hoverBackgroundColor: [
+            type: 'doughnut',
+            data: {
+                labels: ["^Muy bien", "^Bien", "^Regular", "^Mal"],
+                datasets: [{
+                    label: '# # ^de votos',
+                    //data: [12, 19, 3, 5],
+                    data: data1,
+                    backgroundColor: [
+                      'rgba(34, 139, 34, 0.5)',
+                      'rgba(144, 238, 144, 0.5)',
+                      'rgba(255, 165, 0, 0.5)',
+                      'rgba(255, 0, 0, 0.5)'
+                    ],
+                    hoverBackgroundColor: [
+                        "#228B22",
+                        "#90EE90",
+                        "#FFA500",
+                        "#FF0000"
+                    ]
+                }]
+            }
+
+        });
+
+        this.doughnutChart2 = new Chart(this.doughnutCanvas2.nativeElement, {
+
+            type: 'doughnut',
+            data: {
+                labels: ["^Muy bien", "^Bien", "^Regular", "^Mal"],
+                datasets: [{
+                    label: '# ^de votos',
+                    //data: [12, 19, 3, 5],
+                    data: data2,
+                    backgroundColor: [
+                      'rgba(34, 139, 34, 0.5)',
+                      'rgba(144, 238, 144, 0.5)',
+                      'rgba(255, 165, 0, 0.5)',
+                      'rgba(255, 0, 0, 0.5)'
+                    ],
+                    hoverBackgroundColor: [
                       "#228B22",
                       "#90EE90",
                       "#FFA500",
                       "#FF0000"
-                  ]
-              }]
-          }
+                    ]
+                }]
+            }
 
-      });
-
-      this.doughnutChart2 = new Chart(this.doughnutCanvas2.nativeElement, {
-
-          type: 'doughnut',
-          data: {
-              labels: ["^Muy bien", "^Bien", "^Regular", "^Mal"],
-              datasets: [{
-                  label: '# ^de votos',
-                  //data: [12, 19, 3, 5],
-                  data: data2,
-                  backgroundColor: [
-                    'rgba(34, 139, 34, 0.5)',
-                    'rgba(144, 238, 144, 0.5)',
-                    'rgba(255, 165, 0, 0.5)',
-                    'rgba(255, 0, 0, 0.5)'
-                  ],
-                  hoverBackgroundColor: [
-                    "#228B22",
-                    "#90EE90",
-                    "#FFA500",
-                    "#FF0000"
-                  ]
-              }]
-          }
-
-      });
-
-      this.doughnutChart3 = new Chart(this.doughnutCanvas3.nativeElement, {
-
-          type: 'doughnut',
-          data: {
-              labels: ["^Mucho", "^Normal", "^Poco", "^Nada"],
-              datasets: [{
-                  label: '# ^de votos',
-                  //data: [12, 19, 3, 5],
-                  data: data3,
-                  backgroundColor: [
-                    'rgba(34, 139, 34, 0.5)',
-                    'rgba(144, 238, 144, 0.5)',
-                    'rgba(255, 165, 0, 0.5)',
-                    'rgba(255, 0, 0, 0.5)'
-                  ],
-                  hoverBackgroundColor: [
-                    "#228B22",
-                    "#90EE90",
-                    "#FFA500",
-                    "#FF0000"
-                  ]
-              }]
-          }
-
-      });
-
-      this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-          type: 'line',
-          data: {
-              //labels: ["January", "February", "March", "April", "May", "June", "July"],
-              labels: dd,
-              datasets: [
-                  {
-                      label: "^Question1",
-                      fill: false,
-                      lineTension: 0.1,
-                      backgroundColor: "rgba(75,192,192,0.4)",
-                      borderColor: "rgba(75,192,192,1)",
-                      borderCapStyle: 'butt',
-                      borderDash: [],
-                      borderDashOffset: 0.0,
-                      borderJoinStyle: 'miter',
-                      pointBorderColor: "rgba(75,192,192,1)",
-                      pointBackgroundColor: "#fff",
-                      pointBorderWidth: 1,
-                      pointHoverRadius: 5,
-                      pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                      pointHoverBorderColor: "rgba(220,220,220,1)",
-                      pointHoverBorderWidth: 2,
-                      pointRadius: 1,
-                      pointHitRadius: 10,
-                      //data: [65, 59, 80, 81, 56, 55, 40],
-                      data: linea_q1,
-                      spanGaps: false,
-                  },
-                  {
-                      label: "^Question2",
-                      fill: false,
-                      lineTension: 0.1,
-                      backgroundColor: "rgba(34, 139, 34, 0.4)",
-                      borderColor: "rgba(34, 139, 34,1)",
-                      borderCapStyle: 'butt',
-                      borderDash: [],
-                      borderDashOffset: 0.0,
-                      borderJoinStyle: 'miter',
-                      pointBorderColor: "rgba(34, 139, 34,1)",
-                      pointBackgroundColor: "#fff",
-                      pointBorderWidth: 1,
-                      pointHoverRadius: 5,
-                      pointHoverBackgroundColor: "rgba(34, 139, 34,1)",
-                      pointHoverBorderColor: "rgba(220,220,220,1)",
-                      pointHoverBorderWidth: 2,
-                      pointRadius: 1,
-                      pointHitRadius: 10,
-                      //data: [65, 59, 80, 81, 56, 55, 40],
-                      data: linea_q2,
-                      spanGaps: false,
-                  },
-                  {
-                      label: "^Question3",
-                      fill: false,
-                      lineTension: 0.1,
-                      backgroundColor: "rgba(255, 165, 0,0.4)",
-                      borderColor: "rgba(255, 165, 0,1)",
-                      borderCapStyle: 'butt',
-                      borderDash: [],
-                      borderDashOffset: 0.0,
-                      borderJoinStyle: 'miter',
-                      pointBorderColor: "rgba(255, 165, 0,1)",
-                      pointBackgroundColor: "#fff",
-                      pointBorderWidth: 1,
-                      pointHoverRadius: 5,
-                      pointHoverBackgroundColor: "rgba(255, 165, 0,1)",
-                      pointHoverBorderColor: "rgba(220,220,220,1)",
-                      pointHoverBorderWidth: 2,
-                      pointRadius: 1,
-                      pointHitRadius: 10,
-                      //data: [65, 59, 80, 81, 56, 55, 40],
-                      data: linea_q3,
-                      spanGaps: false,
-                  },
-                  {
-                      label: "^Accept",
-                      fill: false,
-                      lineTension: 0.1,
-                      backgroundColor: "rgba(255, 0, 0, 0.4)",
-                      borderColor: "rgba(255, 0, 0,1)",
-                      borderCapStyle: 'butt',
-                      borderDash: [],
-                      borderDashOffset: 0.0,
-                      borderJoinStyle: 'miter',
-                      pointBorderColor: "rgba(255, 0, 0,1)",
-                      pointBackgroundColor: "#fff",
-                      pointBorderWidth: 1,
-                      pointHoverRadius: 5,
-                      pointHoverBackgroundColor: "rgba(255, 0, 0,1)",
-                      pointHoverBorderColor: "rgba(220,220,220,1)",
-                      pointHoverBorderWidth: 2,
-                      pointRadius: 1,
-                      pointHitRadius: 10,
-                      //data: [65, 59, 80, 81, 56, 55, 40],
-                      data: linea_aceptabilidad,
-                      spanGaps: false,
-                  }
-              ]
-          }
-
-      });
-
-      if (numInq == 0){
-        let alert = this.alertCtrl.create({
-          title:'^No hay encuestas por semana de mostrar todavía...',
-          subTitle:null,
-          buttons:['OK']
         });
-        alert.present();
-      }
 
-    }, (err:IDetailedError<string[]>) => {
-      let errors = '';
-      if (err.details != null){
-        for(let e of err.details) {
-          console.log(e);
-          if(e === 'required_userOrigin') errors += 'User from is required.<br/>';
-          if(e === 'required_UserEnd') errors += 'User to is required.<br/>';
-          if(e === 'requires_description') errors += 'You need to feed transaction descriptiondesription.<br/>';
-          //don't need to worry about conflict_username
-          if(e === 'invalid_email') errors += 'Your email address isn\'t valid.';
+        this.doughnutChart3 = new Chart(this.doughnutCanvas3.nativeElement, {
+
+            type: 'doughnut',
+            data: {
+                labels: ["^Mucho", "^Normal", "^Poco", "^Nada"],
+                datasets: [{
+                    label: '# ^de votos',
+                    //data: [12, 19, 3, 5],
+                    data: data3,
+                    backgroundColor: [
+                      'rgba(34, 139, 34, 0.5)',
+                      'rgba(144, 238, 144, 0.5)',
+                      'rgba(255, 165, 0, 0.5)',
+                      'rgba(255, 0, 0, 0.5)'
+                    ],
+                    hoverBackgroundColor: [
+                      "#228B22",
+                      "#90EE90",
+                      "#FFA500",
+                      "#FF0000"
+                    ]
+                }]
+            }
+
+        });
+
+        this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+            type: 'line',
+            data: {
+                //labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: dd,
+                datasets: [
+                    {
+                        label: "^Question1",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(75,192,192,0.4)",
+                        borderColor: "rgba(75,192,192,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        //data: [65, 59, 80, 81, 56, 55, 40],
+                        data: linea_q1,
+                        spanGaps: false,
+                    },
+                    {
+                        label: "^Question2",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(34, 139, 34, 0.4)",
+                        borderColor: "rgba(34, 139, 34,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(34, 139, 34,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(34, 139, 34,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        //data: [65, 59, 80, 81, 56, 55, 40],
+                        data: linea_q2,
+                        spanGaps: false,
+                    },
+                    {
+                        label: "^Question3",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(255, 165, 0,0.4)",
+                        borderColor: "rgba(255, 165, 0,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(255, 165, 0,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(255, 165, 0,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        //data: [65, 59, 80, 81, 56, 55, 40],
+                        data: linea_q3,
+                        spanGaps: false,
+                    },
+                    {
+                        label: "^Accept",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(255, 0, 0, 0.4)",
+                        borderColor: "rgba(255, 0, 0,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(255, 0, 0,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(255, 0, 0,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        //data: [65, 59, 80, 81, 56, 55, 40],
+                        data: linea_aceptabilidad,
+                        spanGaps: false,
+                    }
+                ]
+            }
+
+        });
+
+        if (numInq == 0){
+          let alert = this.alertCtrl.create({
+            title:'^No hay encuestas por semana de mostrar todavía...',
+            subTitle:null,
+            buttons:['OK']
+          });
+          alert.present();
         }
-      }
-      if (numInq == 0){
-        let alert = this.alertCtrl.create({
-          title:'^No hay encuestas por semana de mostrar todavía...',
-          subTitle:errors,
-          buttons:['OK']
-        });
-        alert.present();
-      }else{
-        let alert = this.alertCtrl.create({
-          title:'^getting inquiry by week Error',
-          subTitle:errors,
-          buttons:['OK']
-        });
-        alert.present();
-      }
 
-    });
+      }, (err:IDetailedError<string[]>) => {
+        let errors = '';
+        if (err.details != null){
+          for(let e of err.details) {
+            console.log(e);
+            if(e === 'required_userOrigin') errors += 'User from is required.<br/>';
+            if(e === 'required_UserEnd') errors += 'User to is required.<br/>';
+            if(e === 'requires_description') errors += 'You need to feed transaction descriptiondesription.<br/>';
+            //don't need to worry about conflict_username
+            if(e === 'invalid_email') errors += 'Your email address isn\'t valid.';
+          }
+        }
+        if (numInq == 0){
+          let alert = this.alertCtrl.create({
+            title:'^No hay encuestas por semana de mostrar todavía...',
+            subTitle:errors,
+            buttons:['OK']
+          });
+          alert.present();
+        }else{
+          let alert = this.alertCtrl.create({
+            title:'^getting inquiry by week Error',
+            subTitle:errors,
+            buttons:['OK']
+          });
+          alert.present();
+        }
 
+      });
+    }
   }
 
   doRefresh(refresher) {

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
 import { StatisticsPage } from '../../pages/statistics/statistics';
+import { WeekstatsPage } from '../../pages/weekstats/weekstats';
 
 /**
  * Generated class for the StatsaccessPage page.
@@ -56,6 +57,11 @@ export class StatsaccessPage {
 
   weekStats(){
     console.log("go to week stats");
+    if (this.isGroup){
+      this.navCtrl.push(WeekstatsPage, { item : this.RegisterGroupRs});
+    }else{
+      this.navCtrl.push(WeekstatsPage, {});
+    }
   }
 
   monthStats(){
