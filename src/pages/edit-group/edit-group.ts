@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
 import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
 import {AuthService} from '../../app/_services/index';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { IDetailedError } from '@ionic/cloud-angular';
 import {memberGroupDto } from '../../app/_dtos/index';
 
 /**
@@ -76,7 +76,6 @@ export class EditGroupPage {
     //console.log("item -> " + JSON.stringify(item));
 
     let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
-    var d = new Date();
     var newItem = new memberGroupDto();
     newItem.createdBy = item.email;
     newItem.creationDate = item.creationDate;
@@ -175,7 +174,6 @@ export class EditGroupPage {
             handler: data => {
               //console.log('ok clicked');
               if (this.checkEmail(data.email)){
-                var itemAux = { "email" : data.email };
                 let pos = this.RegisterGroupRs.members.map(function(e) { return e.email; }).indexOf(data.email);
                 //console.log(itemAux + " este mail está -> " + pos);
                 var d = new Date();

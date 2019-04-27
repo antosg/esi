@@ -8,7 +8,7 @@ import { NavController , AlertController } from 'ionic-angular';
 import { Chart } from 'chart.js';
 
 import {RegisterGroupStatsRs, RegisterGroupRs} from '../../app/_dtos/index';
-import {InquiriesByDayRsp, commentDto} from '../../app/dtos/inquiry';
+import { commentDto } from '../../app/dtos/inquiry';
 
 /**
  * Generated class for the StatisticsPage page.
@@ -96,7 +96,6 @@ export class WeekstatsPage {
     var linea_q3 = [];
     var linea_aceptabilidad = [];
     var numInq = 0;
-    var arrC = [];
 
     //console.log("MyDatePicker -> " + this.MyDatePicker);
     var x = new Date();

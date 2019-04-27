@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {RegisterGroupRs, LoginRs} from '../../app/_dtos/index';
+import {RegisterGroupRs } from '../../app/_dtos/index';
 import { StatisticsPage } from '../../pages/statistics/statistics';
 import { WeekstatsPage } from '../../pages/weekstats/weekstats';
 

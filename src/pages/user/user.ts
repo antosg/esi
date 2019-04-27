@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 
 import { Http } from '@angular/http';
 import {AuthService} from '../../app/_services/index';
-import {RegisterRq, RegisterRs, LoginRq, LoginRs, modifyUserRq} from '../../app/_dtos/index';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { RegisterRs, LoginRs, modifyUserRq} from '../../app/_dtos/index';
+import { IDetailedError } from '@ionic/cloud-angular';
 
 /**
  * Generated class for the UserPage page.
