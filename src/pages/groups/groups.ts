@@ -25,7 +25,7 @@ export class GroupsPage {
 
   RegisterGroupRs: RegisterGroupRs = new RegisterGroupRs();
   groups: any = [];
-  number_of_groups : 3;
+  number_of_groups = 3;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -72,8 +72,8 @@ export class GroupsPage {
   }
 
   createNewGroup(){
-    //console.log("creando un nuevo grupo");
-    if (this.number_of_groups <= this.groups.length){
+    console.log("creando un nuevo grupo -> " + this.number_of_groups + " - " + this.groups.length);
+    if (this.groups.length <= this.number_of_groups){
       this.navCtrl.push(CreateGroupPage);
     }else{
       let alert = this.alertCtrl.create({
