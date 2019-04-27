@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
-import { ResetRq, RegisterRq, RegisterRs } from '../../app/_dtos/dtos.component';
+import { ResetRq, RegisterRs } from '../../app/_dtos/dtos.component';
 import { AuthService } from '../../app/_services/index';
 import { LoginPage } from '../../app/_login/index';
 import { IDetailedError } from '@ionic/cloud-angular';

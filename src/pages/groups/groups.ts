@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import { TransactionService, AuthService } from '../../app/_services/index';
 import { IDetailedError } from '@ionic/cloud-angular';
 
-import { StatisticsPage } from '../../pages/statistics/statistics';
 import { CreateGroupPage }  from '../../pages/create-group/create-group';
 import { EditGroupPage }  from '../../pages/edit-group/edit-group';
 import { StatsaccessPage } from '../../pages/statsaccess/statsaccess';

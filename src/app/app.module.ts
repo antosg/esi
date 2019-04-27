@@ -6,9 +6,7 @@ import { HttpModule, Http } from '@angular/http';
 import { AuthService , TransactionService} from './_services/index';
 import { MapperDto } from './_mapper/index';
 
-import { IonicApp, IonicErrorHandler, IonicModule, NavController, AlertController, LoadingController } from 'ionic-angular';
-import { User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
-
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { TaskListPage } from '../pages/tasklist/tasklist';
