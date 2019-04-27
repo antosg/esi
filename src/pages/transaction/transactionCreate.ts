@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular'; 
+import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { HomePage } from '../../pages/home/home';
 import {TransactionService} from '../../app/_services/index';
 import {MapperDto} from '../../app/_mapper/index';
@@ -21,35 +21,35 @@ export class TransactionCreatePage {
   private toastCtrl: ToastController, public transactionService: TransactionService, private mapper: MapperDto) {}
 
   ionViewDidLoad() {
-    console.log('Hello TransactionPage Page');
+    //console.log('Hello TransactionPage Page');
   }
 
   doCreatetransaction() {
     if(!this.isHiddenCard) {
-      console.log('process register');
+      //console.log('process register');
 
-      
-      if(this.transactionRq.userStartTransaction === '' || this.transactionRq.userEndTransaction === '' || 
+
+      if(this.transactionRq.userStartTransaction === '' || this.transactionRq.userEndTransaction === '' ||
         this.transactionRq.transactionDescription === '') {
         let alert = this.alertCtrl.create({
-          title:'Register Error', 
+          title:'Register Error',
           subTitle:'All fields are rquired',
           buttons:['OK']
         });
         alert.present();
         return;
       }
-      
+
       let loader = this.loadingCtrl.create({
         content: "Creating transaction..."
       });
       loader.present();
 
       this.transactionService.create(this.transactionRq).then((registerResult) => {
-        console.log('ok create transaction');  
+        //console.log('ok create transaction');
         loader.dismiss();
-        console.log(registerResult);
-        this.isHiddenCard = !this.isHiddenCard;  
+        //console.log(registerResult);
+        this.isHiddenCard = !this.isHiddenCard;
         let registerData: any = registerResult;
         this.transactionRs = registerData;
 
@@ -65,17 +65,17 @@ export class TransactionCreatePage {
           if(e === 'invalid_email') errors += 'Your email address isn\'t valid.';
         }
         let alert = this.alertCtrl.create({
-          title:'Register Error', 
+          title:'Register Error',
           subTitle:errors,
           buttons:['OK']
         });
         alert.present();
       });
-    
+
     } else {
       this.isHiddenCard = !this.isHiddenCard ;
     }
-    
+
   }
 
 }

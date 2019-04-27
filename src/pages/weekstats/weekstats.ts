@@ -51,17 +51,17 @@ export class WeekstatsPage {
     public alertCtrl: AlertController,
     public navParams: NavParams) {
 
-      console.log("item..." + navParams.get('item'));
+      //console.log("item..." + navParams.get('item'));
       if (navParams.get('item') != null || navParams.get('item') != undefined){
-        console.log("navParms -> " + navParams.get('item'));
-        console.log("navParms -> " + navParams.get('item')._id);
-        console.log(navParams.get('item'));
+        //console.log("navParms -> " + navParams.get('item'));
+        //console.log("navParms -> " + navParams.get('item')._id);
+        //console.log(navParams.get('item'));
         this.RegisterGroupStatsRs = navParams.get('item');
-        console.log("nombre grupo1 -> " + this.RegisterGroupStatsRs.group);
+        //console.log("nombre grupo1 -> " + this.RegisterGroupStatsRs.group);
         this.idGroup = this.RegisterGroupStatsRs._id;
         this.groupSelect = this.RegisterGroupStatsRs._id;
       }else{
-        console.log("nombre grupo -> null");
+        //console.log("nombre grupo -> null");
         this.idGroup = "";
       }
 
@@ -72,12 +72,12 @@ export class WeekstatsPage {
   };
 
   refreshGroupSelect(){
-    console.log('ionViewDidLoad GroupsPage');
+    //console.log('ionViewDidLoad GroupsPage');
     this.transactionService.getGroups().then((registerResult) => {
-        console.log('ok getGroups');
+        //console.log('ok getGroups');
         let registerData: any = registerResult;
         this.RegisterGroupRs = registerData;
-        console.log("Los grupos para las estadísticas son -> " + JSON.stringify(this.RegisterGroupRs));
+        //console.log("Los grupos para las estadísticas son -> " + JSON.stringify(this.RegisterGroupRs));
         this.groups = this.RegisterGroupRs;
       }, (err:IDetailedError<string[]>) => {
           console.log(err);
@@ -98,30 +98,30 @@ export class WeekstatsPage {
     var numInq = 0;
     var arrC = [];
 
-    console.log("MyDatePicker -> " + this.MyDatePicker);
+    //console.log("MyDatePicker -> " + this.MyDatePicker);
     var x = new Date();
     if (this.MyDatePicker != null){
       x = new Date(this.MyDatePicker);
     }
-    console.log("fecha sobre la que calculamos -> " + x);
+    //console.log("fecha sobre la que calculamos -> " + x);
 
     var weeki = currentWeekNumber(x);
-    console.log("weeki -> " + weeki);
+    //console.log("weeki -> " + weeki);
 
     if (this.groupSelect != "" && this.groupSelect != null){
       this.transactionService.getInquiriesByWeek(weeki, this.groupSelect).then((registerResult) => {
-        console.log('getting inquiriesByDay...');
-        console.log(registerResult);
+        //console.log('getting inquiriesByDay...');
+        //console.log(registerResult);
         let InquiriesByWeekRsp: any = registerResult;
         this.InquiriesByWeekRsp = InquiriesByWeekRsp;
 
         if (InquiriesByWeekRsp == "undefined" || InquiriesByWeekRsp == undefined || InquiriesByWeekRsp == null){
-          console.log("noy hay ninguna encuesta...");
+          //console.log("noy hay ninguna encuesta...");
           data1 = [0, 0, 0, 0];
           data2 = [0, 0, 0, 0];
           data3 = [0, 0, 0, 0];
         }else{
-          console.log("acabo de cargar " + InquiriesByWeekRsp.num_inquiries + " encuestas....");
+          //console.log("acabo de cargar " + InquiriesByWeekRsp.num_inquiries + " encuestas....");
           numInq = InquiriesByWeekRsp.num_inquiries;
           data1 = this.InquiriesByWeekRsp.x100_res_q1;
           data2 = this.InquiriesByWeekRsp.x100_res_q2;
@@ -139,9 +139,9 @@ export class WeekstatsPage {
           this.num_cc = 0;
 
           for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
-            console.log("comentario " + i + " -> " + JSON.stringify(this.InquiriesByWeekRsp.comments[i]));
+            //console.log("comentario " + i + " -> " + JSON.stringify(this.InquiriesByWeekRsp.comments[i]));
             var arrC = this.InquiriesByWeekRsp.comments[i];
-            console.log("coentario en < " + arrC.length);
+            //console.log("coentario en < " + arrC.length);
             for (var k = 0; k < arrC.length; k++){
               this.commentDto = arrC[k];
               this.num_cc++;
@@ -374,10 +374,10 @@ export class WeekstatsPage {
   }
 
   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
+    //console.log('Begin async operation', refresher);
                 this.ionViewDidLoad();
     setTimeout(() => {
-      console.log('Async operation has ended');
+      //console.log('Async operation has ended');
       refresher.complete();
     }, 2000);
   }

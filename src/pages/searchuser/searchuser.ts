@@ -22,7 +22,7 @@ export class SearchUserPage {
   }
 
   retrieveUser(){
-    console.log("dentro de retireveUser -> " + this.email);
+    //console.log("dentro de retireveUser -> " + this.email);
     this.isHiddenUserCard = false;
     this.email = this.email;
     let loader = this.loadingCtrl.create({
@@ -31,9 +31,9 @@ export class SearchUserPage {
     loader.present();
     this.repServices.retrieveUserRep(this.email).then(data => {
       loader.dismiss();
-      console.log(data);
+      //console.log(data);
       this.userInfo = data; //this.userInfoMapper.data2UserInfo(data);
-      console.log(this.userInfo);
+      //console.log(this.userInfo);
       //this.isHiddenUserCard = !this.isHiddenUserCard;
       this.isHiddenUserCard = true;
       return data;

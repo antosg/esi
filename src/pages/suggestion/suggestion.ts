@@ -36,7 +36,7 @@ export class SuggestionPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SuggestionPage');
+    //console.log('ionViewDidLoad SuggestionPage');
   }
 
   reload(){
@@ -44,7 +44,7 @@ export class SuggestionPage {
   }
 
   doSuggestion() {
-    console.log("dentro de doSuggestion..." + this.suggestionRq.suggestion);
+    //console.log("dentro de doSuggestion..." + this.suggestionRq.suggestion);
 
     if(this.suggestionRq.suggestion === '' || this.suggestionRq.suggestion === undefined) {
       let alert = this.alertCtrl.create({
@@ -64,7 +64,7 @@ export class SuggestionPage {
     return new Promise((resolve, reject) => {
         //let loginRs: LoginRs = new LoginRs();
         let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
-          console.log("user1 -> " + loginRs.user.email);
+          //console.log("user1 -> " + loginRs.user.email);
 
           let headers = new Headers();
           headers.append('x-access-token', loginRs.token);

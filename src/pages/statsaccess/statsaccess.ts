@@ -26,15 +26,15 @@ export class StatsaccessPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     //busco si a esta página llego desde el menú o desde mis grupos...
-    console.log(this.navParams.data);
+    //console.log(this.navParams.data);
     if (this.navParams.data.grupo != null || this.navParams.data.grupo != undefined){
-      console.log(this.navParams.data.grupo);
+      //console.log(this.navParams.data.grupo);
       this.RegisterGroupRs = this.navParams.data.grupo;
-      console.log("nombre grupo -> " + this.RegisterGroupRs.group);
+      //console.log("nombre grupo -> " + this.RegisterGroupRs.group);
       this.textGraphic = "para " + this.RegisterGroupRs.group
       this.isGroup = true;
     }else{
-      console.log("nombre grupo -> null");
+      //console.log("nombre grupo -> null");
       this.textGraphic = "de tus grupos";
       this.isGroup = false;
     }
@@ -42,11 +42,11 @@ export class StatsaccessPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StatsaccessPage');
+    //console.log('ionViewDidLoad StatsaccessPage');
   }
 
   dayStats(){
-    console.log("go to day stats");
+    //console.log("go to day stats");
     if (this.isGroup){
       this.navCtrl.push(StatisticsPage, { item : this.RegisterGroupRs});
     }else{
@@ -56,7 +56,7 @@ export class StatsaccessPage {
   }
 
   weekStats(){
-    console.log("go to week stats");
+    //console.log("go to week stats");
     if (this.isGroup){
       this.navCtrl.push(WeekstatsPage, { item : this.RegisterGroupRs});
     }else{
