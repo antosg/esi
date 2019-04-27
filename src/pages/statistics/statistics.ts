@@ -103,6 +103,9 @@ export class StatisticsPage {
     var x = new Date();
     if (this.MyDatePicker != null){
       x = new Date(this.MyDatePicker);
+    }else{
+      let myDate: String = new Date().toISOString();
+      this.MyDatePicker = myDate;
     }
     //console.log("fecha sobre la que calculamos -> " + x);
     var now_utc =  Date.UTC(x.getUTCFullYear(), x.getUTCMonth(), x.getUTCDate(), x.getUTCHours(), x.getUTCMinutes(), x.getUTCSeconds());
