@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {LoginRq, LoginRs, RegisterRq, RegisterRs, RegisterGroupRs, RegisterGroupRq, modifyUserRq, ResetRq, userPreferencesRq } from '../_dtos/index';
+import {LoginRq, LoginRs, RegisterRq, RegisterGroupRs, RegisterGroupRq, modifyUserRq, ResetRq, userPreferencesRq } from '../_dtos/index';
 
 //client url
 let apiUrl = 'https://reponline.herokuapp.com/';

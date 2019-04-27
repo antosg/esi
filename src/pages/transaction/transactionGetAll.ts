@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
-import { HomePage } from '../../pages/home/home';
+import { IDetailedError } from '@ionic/cloud-angular';
 import {TransactionService} from '../../app/_services/index';
 import {MapperDto} from '../../app/_mapper/index';
-import {TransactionRs, TransactionGetAllRs, LoginRq, LoginRs} from '../../app/_dtos/index';
+import {TransactionGetAllRs } from '../../app/_dtos/index';
 
 @Component({
   selector: 'page-transactionGetAll',

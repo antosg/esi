@@ -6,8 +6,7 @@ const url: string = "https://reponline.herokuapp.com";
 const login: string ="/login";
 const retrieveUser: string ="/user/";
 var dummyLoginObject: DummyLogin;
-const dummyLogin: any = `{ "email": "villenita@gmail.com",
-  "password": "villenita43"}`;
+//const dummyLogin: any = `{ "email": "villenita@gmail.com", "password": "villenita43"}`;
 
 class DummyLogin {
     email: string;
@@ -39,6 +38,7 @@ export class RepServices {
             });
         });
     }
+
 
     retrieveUserRep(email: string){
         //console.log("retrieveUserrep -> " + email);
