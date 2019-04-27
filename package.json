@@ -32,9 +32,9 @@
     "@ngx-translate/http-loader": "^0.1.0",
     "chart.js": "^2.7.2",
     "com-badrit-base64": "^0.2.0",
-    "cordova-android": "^7.1.0",
+    "cordova-android": "^7.0.0",
+    "cordova-android-play-services-gradle-release": "^3.0.0",
     "cordova-plugin-device": "^1.1.4",
-    "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-inappbrowser": "^1.7.1",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-statusbar": "^2.2.2",
@@ -62,14 +62,14 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
       "ionic-plugin-keyboard": {},
-      "cordova-plugin-fcm": {},
       "cordova-plugin-telerik-imagepicker": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
       },
-      "com-badrit-base64": {}
+      "com-badrit-base64": {},
+      "cordova-android-play-services-gradle-release": {
+        "PLAY_SERVICES_VERSION": "15.+"
+      }
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
