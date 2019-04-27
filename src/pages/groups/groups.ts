@@ -41,17 +41,17 @@ export class GroupsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GroupsPage');
+    //console.log('ionViewDidLoad GroupsPage');
     this.TransactionService.getGroups().then((registerResult) => {
-      console.log('ok getGroups');
+      //console.log('ok getGroups');
       let registerData: any = registerResult;
       this.RegisterGroupRs = registerData;
-      console.log("Datos -> " + JSON.stringify(this.RegisterGroupRs));
+      //console.log("Datos -> " + JSON.stringify(this.RegisterGroupRs));
       this.groups = this.RegisterGroupRs;
     }, (err:IDetailedError<string[]>) => {
       let errors = '';
       for(let e of err.details) {
-        console.log(e);
+        //console.log(e);
         if(e === 'required_email') errors += '^Email is required.<br/>';
         if(e === 'required_password') errors += '^Password is required.<br/>';
         if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';
@@ -68,12 +68,12 @@ export class GroupsPage {
   }
 
   navStatistics(grupo){
-    console.log("el grupo es -> " + grupo);
+    //console.log("el grupo es -> " + grupo);
     this.navCtrl.push(StatsaccessPage, { grupo });
   }
 
   createNewGroup(){
-    console.log("creando un nuevo grupo");
+    //console.log("creando un nuevo grupo");
     if (this.number_of_groups <= this.groups.length){
       this.navCtrl.push(CreateGroupPage);
     }else{
@@ -86,7 +86,7 @@ export class GroupsPage {
   }
 
   navEditGroup(grupo){
-    console.log("editando el grupo -> " + grupo);
+    //console.log("editando el grupo -> " + grupo);
     this.navCtrl.push(EditGroupPage, { grupo } );
   }
 
@@ -105,11 +105,11 @@ export class GroupsPage {
         }, {
           text: '^Confirmar',
           handler: () => {
-            console.log('Confirmar que quieres cerrar el grupo -> ' + grupo._id);
+            //console.log('Confirmar que quieres cerrar el grupo -> ' + grupo._id);
             var j = new Date();
             grupo.fecfin = j;
             this.AuthService.updateGroup(grupo).then((registerGroupRs) => {
-              console.log('ok acceptOrNotInvitation');
+              //console.log('ok acceptOrNotInvitation');
               //let registerData: any = registerResult;
               //this.RegisterInvitationsRs = registerData;
               //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
@@ -118,7 +118,7 @@ export class GroupsPage {
             }, (err:IDetailedError<string[]>) => {
               let errors = '';
               for(let e of err.details) {
-                console.log(e);
+                //console.log(e);
                 if(e === 'required_email') errors += '^Email is required.<br/>';
                 if(e === 'required_password') errors += '^Password is required.<br/>';
                 if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';

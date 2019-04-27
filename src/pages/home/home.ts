@@ -69,29 +69,29 @@ lineChart: any;
       tomorrow.setSeconds(0);
 
       if (last_inquiry == null){
-        console.log("no hay encuesta grabada por lo que podemos grabar una encuesta...")
+        //console.log("no hay encuesta grabada por lo que podemos grabar una encuesta...")
         this.send_inquiry = true;
       }else{
-        console.log("hay una encuesta grabada -> " + last_inquiry);
+        //console.log("hay una encuesta grabada -> " + last_inquiry);
         if (this.sameDay(today, last_inquiry)){
-          console.log("hoy es el mismo día que la encuesta. NO podemos grabar otra....");
+          //console.log("hoy es el mismo día que la encuesta. NO podemos grabar otra....");
           this.send_inquiry = false;
         }else{
-          console.log("hoy NO es el mismo día que la encuesta. podemos grabar otra....");
+          //console.log("hoy NO es el mismo día que la encuesta. podemos grabar otra....");
           this.send_inquiry = true;
         }
       }
-      console.log("puedo enviar una encuesta? " +   this.send_inquiry);
+      //console.log("puedo enviar una encuesta? " +   this.send_inquiry);
 
       //para pruebas hago que se puedan enviar varias encuestas....
       this.send_inquiry = true;
 
       let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
       this.repServices.retrieveUserRep(loginRs.user.email).then(data => {
-        console.log(data);
+        //console.log(data);
         this.userInfo = data; //this.userInfoMapper.data2UserInfo(data);
-        
-        console.log("la información del usuario es -> " + this.userInfo);
+
+        //console.log("la información del usuario es -> " + this.userInfo);
         return data;
       });
 
@@ -101,7 +101,7 @@ lineChart: any;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    //console.log('ionViewDidLoad HomePage');
   }
 
   ionViewWillEnter(){
@@ -118,7 +118,7 @@ lineChart: any;
     this.http.get('https://reponline.herokuapp.com/masters/myGroups/' + loginRs.user.email, {headers: headers})
       .subscribe(res => {
         //resolve(res.json());
-        console.log("mi respuesta es -> " + res.json());
+        //console.log("mi respuesta es -> " + res.json());
         this.myGroups = res.json();
       }, (err) => {
         console.error(err);
@@ -162,17 +162,17 @@ lineChart: any;
 
   sendInquiry(){
     var now = new Date();
-    console.log("He enviado la encuesta -> " + now.getTime());
+    //console.log("He enviado la encuesta -> " + now.getTime());
     now.setHours(23);
     now.setMinutes(59);
     now.setSeconds(59);
     localStorage.setItem('lastInquirySent', now.getTime().toString());
 
-    console.log(this.InquiryRq.question1);
-    console.log(this.InquiryRq.question2);
-    console.log(this.InquiryRq.question3);
-    console.log(this.InquiryRq.observations);
-    console.log(this.InquiryRq.group);
+    //console.log(this.InquiryRq.question1);
+    //console.log(this.InquiryRq.question2);
+    //console.log(this.InquiryRq.question3);
+    //console.log(this.InquiryRq.observations);
+    //console.log(this.InquiryRq.group);
 
 
     if (
@@ -200,9 +200,9 @@ lineChart: any;
 
 
     this.transactionService.sendInquiry(this.InquiryRq).then((registerResult) => {
-      console.log('ok sending inqury...');
+      //console.log('ok sending inqury...');
       loader.dismiss();
-      console.log(registerResult);
+      //console.log(registerResult);
       let registerData: any = registerResult;
       this.transactionRs = registerData;
       let alert = this.alertCtrl.create({
@@ -214,7 +214,7 @@ lineChart: any;
       //this.send_inquiry = false;
       this.disabledForm();
     }, (err:IDetailedError<string[]>) => {
-      console.log("si salta por el error aquí debería ver algo..." + err.toString());
+      //console.log("si salta por el error aquí debería ver algo..." + err.toString());
       loader.dismissAll();
       let errors = '';
       let e = "";

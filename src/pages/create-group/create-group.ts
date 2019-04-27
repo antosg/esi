@@ -35,20 +35,20 @@ export class CreateGroupPage {
   ) {
 
       let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
-      console.log("loginRs -> " + loginRs);
+      //console.log("loginRs -> " + loginRs);
       this.items = [{"email":loginRs.user.email}];
 
   }
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateGroupPage');
+    //console.log('ionViewDidLoad CreateGroupPage');
   }
 
   delete(item){
     console.log("item -> " + item);
     let pos = this.items.indexOf(item);
-    console.log("pos -> " + pos);
+    //console.log("pos -> " + pos);
     this.items.splice(pos, 1);
   }
 
@@ -73,11 +73,11 @@ export class CreateGroupPage {
           {
             text: 'OK',
             handler: data => {
-              console.log('ok clicked');
+              //console.log('ok clicked');
               if (this.checkEmail(data.email)){
                 var itemAux = { "email" : data.email };
                 let pos = this.items.map(function(e) { return e.email; }).indexOf(data.email);
-                console.log(itemAux + " este mail está -> " + pos);
+                //console.log(itemAux + " este mail está -> " + pos);
                 if (pos == -1){
                   this.items.push({"email":data.email});
                 }else{
@@ -134,8 +134,8 @@ export class CreateGroupPage {
 
   doRegister() {
 
-      console.log('Inicio proceso de registro...');
-      console.log('name -> ' + this.registerGroupRq.group);
+      //console.log('Inicio proceso de registro...');
+      //console.log('name -> ' + this.registerGroupRq.group);
 
       if (this.registerGroupRq.group === '' || this.registerGroupRq.group === undefined){
         let alert = this.alertCtrl.create({
@@ -147,7 +147,7 @@ export class CreateGroupPage {
         return;
       }
 
-      console.log('Inicio2');
+      //console.log('Inicio2');
       if(this.items.length == 0){
       //if(this.registerGroupRq.invitations.length == 0) {
         let alert = this.alertCtrl.create({
@@ -167,7 +167,7 @@ export class CreateGroupPage {
       loader.present();
 
       this.authService.registerGroup(this.registerGroupRq).then((registerResult) => {
-        console.log('ok register');
+        //console.log('ok register');
         //no hace falta logearse, porque el usuario está inactivo hasta que reciba el mail y haga
         //click en el enlace, sólo después de esa acción el usuario está en disposición de hacer
         //un login.... por esto comento este trozo de código....
@@ -196,7 +196,7 @@ export class CreateGroupPage {
         loader.dismissAll();
         let errors = '';
         for(let e of err.details) {
-          console.log(e);
+          //console.log(e);
           if(e === 'required_email') errors += '^Email is required.<br/>';
           if(e === 'required_password') errors += '^Password is required.<br/>';
           if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';

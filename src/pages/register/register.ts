@@ -33,22 +33,22 @@ export class RegisterPage {
     public http: Http) {
     this.http.get('https://reponline.herokuapp.com/masters/languages/en').map(res => res.json()).subscribe(data => {
         this.languages = data.items;
-        console.log("languages -> " + this.languages);
+        //console.log("languages -> " + this.languages);
     })
 
     this.http.get('https://reponline.herokuapp.com/masters/countries/en').map(res => res.json()).subscribe(data => {
         this.countries = data.items;
-        console.log("countries -> " + this.languages);
+        //console.log("countries -> " + this.languages);
     })
 
   }
 
   ionViewDidLoad() {
-    console.log('Hello RegisterPage Page');
+    //console.log('Hello RegisterPage Page');
   }
 
   doTc(){
-    console.log("dentro de tos....");
+    //console.log("dentro de tos....");
     this.navCtrl.push(TermsPage);
   }
 
@@ -56,8 +56,8 @@ export class RegisterPage {
 
     if(!this.isHiddenRegisterCard) {
 
-      console.log('Inicio proceso de registro...');
-      console.log('name -> ' + this.registerRq.name + ' terms -> ' + this.registerRq.terms);
+      //console.log('Inicio proceso de registro...');
+      //console.log('name -> ' + this.registerRq.name + ' terms -> ' + this.registerRq.terms);
 
       if (!this.registerRq.terms){
         let alert = this.alertCtrl.create({
@@ -69,7 +69,7 @@ export class RegisterPage {
         return;
       }
 
-      console.log('Inicio2');
+      //console.log('Inicio2');
 
       if(
       this.registerRq.name === '' || this.registerRq.name === undefined
@@ -105,7 +105,7 @@ export class RegisterPage {
       loader.present();
 
       this.authService.register(this.registerRq).then((registerResult) => {
-        console.log('ok register');
+        //console.log('ok register');
         //no hace falta logearse, porque el usuario está inactivo hasta que reciba el mail y haga
         //click en el enlace, sólo después de esa acción el usuario está en disposición de hacer
         //un login.... por esto comento este trozo de código....
@@ -134,7 +134,7 @@ export class RegisterPage {
         loader.dismissAll();
         let errors = '';
         for(let e of err.details) {
-          console.log(e);
+          //console.log(e);
           if(e === 'required_email') errors += '^Email is required.<br/>';
           if(e === 'required_password') errors += '^Password is required.<br/>';
           if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';

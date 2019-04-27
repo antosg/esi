@@ -42,7 +42,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('Hello LoginPage Page');
+    //console.log('Hello LoginPage Page');
   }
 
   /*
@@ -50,9 +50,9 @@ export class LoginPage {
   otherwise show it
   */
   doLogin() {
-    console.log("doLogin");
+    //console.log("doLogin");
     if(this.showLogin) {
-      console.log('process login');
+      //console.log('process login');
       //this.email = "villenita@gmail.com";
       //this.password = "villenita43";
 
@@ -72,12 +72,12 @@ export class LoginPage {
       loader.present();
 
       this.repServices.loginRep(this.email, this.password).then(() => {
-        console.log('ok i guess?');
+        //console.log('ok i guess?');
         loader.dismissAll();
         this.navCtrl.setRoot(HomePage);
       }, (err) => {
         loader.dismissAll();
-        console.log(err.message);
+        //console.log(err.message);
 
         let errors = '';
         if(err.message === 'UNPROCESSABLE ENTITY') errors += 'Email isn\'t valid.<br/>';
@@ -96,7 +96,7 @@ export class LoginPage {
   }
 
   doAuthLogout() {
-      console.log("doAuthLogout");
+      //console.log("doAuthLogout");
       let alert = this.alertCtrl.create({
         title: '^Confirmación salida',
         message: '¿Quiere abandonar la aplicación?',
@@ -111,13 +111,13 @@ export class LoginPage {
           {
             text: '^Confirmar',
             handler: () => {
-              console.log("seteamos a null los datos del usuario en storage");
+              //console.log("seteamos a null los datos del usuario en storage");
               this.authService.logout().then((result) => {
-                console.log('Logged out');
+                //console.log('Logged out');
                 this.enableMenu(false);
                 this.navCtrl.setRoot(LoginPage);
               }, (err) => {
-                console.log('Logged out1');
+                //console.log('Logged out1');
                 alert.dismiss();
               });
             }
@@ -128,7 +128,7 @@ export class LoginPage {
   }
 
   doAuthLogin() {
-      console.log("doAuthLogin....");
+      //console.log("doAuthLogin....");
       let loader = this.loadingCtrl.create({
         content: "^Logging in..."
       });
@@ -141,7 +141,7 @@ export class LoginPage {
       localStorage.setItem('user', JSON.stringify(this.data));
       this.enableMenu(true);
       let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
-       console.log(loginRs);
+       //console.log(loginRs);
        this.navCtrl.setRoot(HomePage);
     }, (err) => {
       loader.dismissAll();
