@@ -72,7 +72,7 @@ export class GroupsPage {
   }
 
   createNewGroup(){
-    console.log("creando un nuevo grupo -> " + this.number_of_groups + " - " + this.groups.length);
+    //console.log("creando un nuevo grupo -> " + this.number_of_groups + " - " + this.groups.length);
     if (this.groups.length <= this.number_of_groups){
       this.navCtrl.push(CreateGroupPage);
     }else{
