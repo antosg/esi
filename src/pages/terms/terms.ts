@@ -23,7 +23,7 @@ export class TermsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, translate: TranslateService) {
     this.dLang = translate.getDefaultLang();
-    console.log("idioma por defecto -> " + this.dLang);
+    //console.log("idioma por defecto -> " + this.dLang);
     this.http.get('https://reponline.herokuapp.com/masters/termsandcoditions/' + this.dLang).map(res => res.json()).subscribe(data => {
         this.terms = data.p0
         + "\n\n" + data.p01+ "\n\n" + data.p001 + "\n\n" + data.p002 + "\n\n" + data.p003 + "\n\n" + data.p004
@@ -43,14 +43,14 @@ export class TermsPage {
         + "\n\n" + data.p135 + "\n\n" + data.p136
         + "\n\n" + data.p14 + "\n\n" + data.p141 + "\n\n" + data.p142 + "\n\n" + data.p143 + "\n\n" + data.p144;
 
-        console.log("terms -> " + this.terms);
+        //console.log("terms -> " + this.terms);
     })
 
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TermsPage');
+    //console.log('ionViewDidLoad TermsPage');
   }
 
 }

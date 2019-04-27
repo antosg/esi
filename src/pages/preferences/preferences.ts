@@ -73,17 +73,17 @@ export class PreferencesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PreferencesPage');
+    //console.log('ionViewDidLoad PreferencesPage');
     //Cargo en el formulario los valores guardado en storage.....
     let val = localStorage.getItem('languageApp');
 
     if (val != null && val != ""){
 
-      console.log('languageApp -> ', val);
+      //console.log('languageApp -> ', val);
       this.languageApp = val;
 
       let val2 = localStorage.getItem('topic');
-      console.log('topic -> ', val2);
+      //console.log('topic -> ', val2);
       if (val2 === 'notificar'){
         this.activateNotification = true;
       }else{
@@ -92,10 +92,10 @@ export class PreferencesPage {
 
     }
 
-    console.log("newImg -> " + this.newImg);
+    //console.log("newImg -> " + this.newImg);
     if (this.newImg == null || this.newImg == "" || this.newImg == undefined){
       this.authService.recoverUserPreferences().then((preferencesResult) => {
-        console.log('ok recoverPreferencesData');
+        //console.log('ok recoverPreferencesData');
         let preferencesData: any = preferencesResult;
         this.userPreferencesRsp = preferencesData;
         //transformo a lower el idioma
@@ -104,7 +104,7 @@ export class PreferencesPage {
         //console.log("avatar -> " + this.userPreferencesRsp.preferences.avatar);
 
         if (val == null && val == ""){
-          console.log("val es igual a nulll");
+          //console.log("val es igual a nulll");
             this.languageApp = this.userPreferencesRsp.language.toLowerCase();
             if (this.userPreferencesRsp.preferences.swipush == "S"){
               this.activateNotification = true;
@@ -116,8 +116,8 @@ export class PreferencesPage {
               this.newImg = this.userPreferencesRsp.preferences.avatar;
             }
         }else{
-          console.log("val NO es igual a nulll");
-          console.log("avatar -> " + this.userPreferencesRsp.preferences.avatar);
+          //console.log("val NO es igual a nulll");
+          //console.log("avatar -> " + this.userPreferencesRsp.preferences.avatar);
           //this.newImg = this.sanitizer.bypassSecurityTrustResourceUrl(this.userPreferencesRsp.preferences.avatar);
           if (this.userPreferencesRsp.preferences.avatar != null && this.userPreferencesRsp.preferences.avatar != ""){
             this.newImg = this.userPreferencesRsp.preferences.avatar;
@@ -129,7 +129,7 @@ export class PreferencesPage {
       }, (err:IDetailedError<string[]>) => {
         let errors = '';
         for(let e of err.details) {
-          console.log(e);
+          //console.log(e);
           if(e === 'required_email') errors += '^Email is required.<br/>';
           if(e === 'required_password') errors += '^Password is required.<br/>';
           if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';
@@ -148,14 +148,14 @@ export class PreferencesPage {
 
   doSaveChanges(){
 
-    console.log("dentro de doSaveChanges...." + this.languageApp);
+    //console.log("dentro de doSaveChanges...." + this.languageApp);
 
     //guardamos en preferences el valor que nos pasan....
     localStorage.setItem('languageApp', this.languageApp);
     this.regData.language = this.languageApp;
 
     FCMPlugin.onTokenRefresh(function(token){
-      console.log("token generado...." + token );
+      //console.log("token generado...." + token );
       this.token = token;
     });
 
@@ -164,12 +164,12 @@ export class PreferencesPage {
     });
 
     if (this.activateNotification){
-      console.log("checked true...");
+      //console.log("checked true...");
       localStorage.setItem('topic', 'notificar');
       this.regData.swipush = "S";
       FCMPlugin.subscribeToTopic('notificar');
     }else{
-      console.log("checked false...");
+      //console.log("checked false...");
       localStorage.setItem('topic', 'nonotificar');
       this.regData.swipush = "N";
       FCMPlugin.unsubscribeFromTopic('notificar');
@@ -194,7 +194,7 @@ export class PreferencesPage {
       this.events.publish('user:logged');
       alert.present();
     }, (err) => {
-      console.log(err);
+      //console.log(err);
       this.loading.dismiss();
       let alert = this.alertCtrl.create({
         title: 'Registration Failed',

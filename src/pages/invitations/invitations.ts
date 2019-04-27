@@ -30,17 +30,17 @@ export class InvitationsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InvitationsPage');
+    //console.log('ionViewDidLoad InvitationsPage');
     this.TransactionService.getInvitations().then((registerResult) => {
-      console.log('ok getGroups');
+      //console.log('ok getGroups');
       let registerData: any = registerResult;
       this.RegisterInvitationsRs = registerData;
-      console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
+      //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
       this.invitations = this.RegisterInvitationsRs;
     }, (err:IDetailedError<string[]>) => {
       let errors = '';
       for(let e of err.details) {
-        console.log(e);
+        //console.log(e);
         if(e === 'required_email') errors += '^Email is required.<br/>';
         if(e === 'required_password') errors += '^Password is required.<br/>';
         if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';
@@ -57,10 +57,10 @@ export class InvitationsPage {
   }
 
   accept(inv){
-    console.log("has aceptado participar en el grupo -> " + inv._id);
-    console.log("Datos -> " + JSON.stringify(inv));
+    //console.log("has aceptado participar en el grupo -> " + inv._id);
+    //console.log("Datos -> " + JSON.stringify(inv));
     this.TransactionService.acceptOrNotInvitation(inv).then((registerResult) => {
-      console.log('ok acceptOrNotInvitation');
+      //console.log('ok acceptOrNotInvitation');
       //let registerData: any = registerResult;
       //this.RegisterInvitationsRs = registerData;
       //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
@@ -69,7 +69,7 @@ export class InvitationsPage {
     }, (err:IDetailedError<string[]>) => {
       let errors = '';
       for(let e of err.details) {
-        console.log(e);
+        //console.log(e);
         if(e === 'required_email') errors += '^Email is required.<br/>';
         if(e === 'required_password') errors += '^Password is required.<br/>';
         if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';
@@ -86,9 +86,9 @@ export class InvitationsPage {
   }
 
   delete(item){
-    console.log("item -> " + item);
+    //console.log("item -> " + item);
     let pos = this.invitations.indexOf(item);
-    console.log("pos -> " + pos);
+    //console.log("pos -> " + pos);
     this.invitations.splice(pos, 1);
   }
 

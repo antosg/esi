@@ -63,7 +63,7 @@ export class TransactionService {
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
-            console.log("salta por el error...");
+            //console.log("salta por el error...");
             reject(err);
           });
     });
@@ -78,7 +78,7 @@ export class TransactionService {
         headers.append('Content-Type', 'application/json');
 
         var chain = day + "-" + group; //esto es una cerdada...
-        console.log("chain -> " + chain);
+        //console.log("chain -> " + chain);
 
         this.http.get(apiUrl + getTransactionByDay + chain, {headers: headers})
           .subscribe(res => {
@@ -149,7 +149,7 @@ export class TransactionService {
         headers.append('Content-Type', 'application/json');
 
         var chain = week + "-" + group; //esto es una cerdada...
-        console.log("chain -> " + chain)
+        //console.log("chain -> " + chain)
 
         this.http.get(apiUrl + getTransactionByWeek + chain, {headers: headers})
           .subscribe(res => {

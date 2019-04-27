@@ -28,27 +28,27 @@ export class EditGroupPage {
     public alertCtrl: AlertController,
     public loadingCtrl:LoadingController,
     public authService: AuthService) {
-    console.log(this.navParams.data);
-    console.log(this.navParams.data.grupo);
+    //console.log(this.navParams.data);
+    //console.log(this.navParams.data.grupo);
     this.RegisterGroupRs = this.navParams.data.grupo;
-    console.log("nombre grupo -> " + this.RegisterGroupRs.group);
+    //console.log("nombre grupo -> " + this.RegisterGroupRs.group);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditGroupPage');
+    //console.log('ionViewDidLoad EditGroupPage');
   }
 
   delete(item){
-    console.log("item -> " + JSON.stringify(item));
+    //console.log("item -> " + JSON.stringify(item));
     let pos = this.RegisterGroupRs.members.map(function(e) { return e.email; }).indexOf(item.email);
-    console.log("este mail está -> " + pos);
+    //console.log("este mail está -> " + pos);
     this.RegisterGroupRs.members.splice(pos, 1);
-    console.log("borrado...");
+    //console.log("borrado...");
   }
 
   finishParticipation(item){
-    console.log("vas a finalizar la participación en el grupo de -> " + item.email);
-    console.log("item -> " + JSON.stringify(item));
+    //console.log("vas a finalizar la participación en el grupo de -> " + item.email);
+    //console.log("item -> " + JSON.stringify(item));
 
     let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
     var d = new Date();
@@ -62,18 +62,18 @@ export class EditGroupPage {
     newItem.last_inquiry = item.last_inquiry;
     newItem.lupdateBy = loginRs.user.email;
     newItem.lupdateDate = d.toString();
-    console.log("new item -> " + JSON.stringify(newItem));
+    //console.log("new item -> " + JSON.stringify(newItem));
 
     let pos = this.RegisterGroupRs.members.map(function(e) { return e.email; }).indexOf(item.email);
-    console.log("este mail está -> " + pos);
+    //console.log("este mail está -> " + pos);
     this.RegisterGroupRs.members.splice(pos, 1);
     this.RegisterGroupRs.members.push(newItem);
 
   }
 
   undo(item){
-    console.log("vas a volver a habilitar la participación en el grupo de -> " + item.email);
-    console.log("item -> " + JSON.stringify(item));
+    //console.log("vas a volver a habilitar la participación en el grupo de -> " + item.email);
+    //console.log("item -> " + JSON.stringify(item));
 
     let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
     var d = new Date();
@@ -87,10 +87,10 @@ export class EditGroupPage {
     newItem.last_inquiry = item.last_inquiry;
     newItem.lupdateBy = loginRs.user.email;
     newItem.lupdateDate = item.lupdateDate;
-    console.log("new item -> " + JSON.stringify(newItem));
+    //console.log("new item -> " + JSON.stringify(newItem));
 
     let pos = this.RegisterGroupRs.members.map(function(e) { return e.email; }).indexOf(item.email);
-    console.log("este mail está -> " + pos);
+    //console.log("este mail está -> " + pos);
     this.RegisterGroupRs.members.splice(pos, 1);
     this.RegisterGroupRs.members.push(newItem);
 
@@ -98,8 +98,8 @@ export class EditGroupPage {
 
   doUpdateGroup() {
 
-      console.log('Inicio proceso de registro...');
-      console.log('name -> ' + this.RegisterGroupRs.group);
+      //console.log('Inicio proceso de registro...');
+      //console.log('name -> ' + this.RegisterGroupRs.group);
 
       if(this.RegisterGroupRs.members.length == 0){
       //if(this.registerGroupRq.invitations.length == 0) {
@@ -118,7 +118,7 @@ export class EditGroupPage {
       loader.present();
 
       this.authService.updateGroup(this.RegisterGroupRs).then((registerResult) => {
-        console.log('ok register');
+        //console.log('ok register');
         let registerData: any = registerResult;
         this.RegisterGroupRs = registerData;
         let alert = this.alertCtrl.create({
@@ -133,7 +133,7 @@ export class EditGroupPage {
         loader.dismissAll();
         let errors = '';
         for(let e of err.details) {
-          console.log(e);
+          //console.log(e);
           if(e === 'required_email') errors += '^Email is required.<br/>';
           if(e === 'required_password') errors += '^Password is required.<br/>';
           if(e === 'conflict_email') errors += '^A user with this email already exists.<br/>';
@@ -152,7 +152,7 @@ export class EditGroupPage {
 
   async addInvitation() {
     let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
-    console.log(this.number_members_group + " - " + this.RegisterGroupRs.members.length);
+    //console.log(this.number_members_group + " - " + this.RegisterGroupRs.members.length);
     if (this.number_members_group >= this.RegisterGroupRs.members.length){
       let alert = this.alertController.create({
         title: 'Introduce el mail del usuario al que quieres invitar a participar en tu grupo',
@@ -173,11 +173,11 @@ export class EditGroupPage {
           {
             text: 'OK',
             handler: data => {
-              console.log('ok clicked');
+              //console.log('ok clicked');
               if (this.checkEmail(data.email)){
                 var itemAux = { "email" : data.email };
                 let pos = this.RegisterGroupRs.members.map(function(e) { return e.email; }).indexOf(data.email);
-                console.log(itemAux + " este mail está -> " + pos);
+                //console.log(itemAux + " este mail está -> " + pos);
                 var d = new Date();
                 if (pos == -1){
                   var newMem = new memberGroupDto();

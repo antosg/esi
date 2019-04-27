@@ -32,16 +32,16 @@ export class UserPage {
 
       this.http.get('https://reponline.herokuapp.com/masters/languages/en').map(res => res.json()).subscribe(data => {
           this.languages = data.items;
-          console.log("languages -> " + this.languages);
+          //console.log("languages -> " + this.languages);
       })
 
       this.http.get('https://reponline.herokuapp.com/masters/countries/en').map(res => res.json()).subscribe(data => {
           this.countries = data.items;
-          console.log("countries -> " + this.languages);
+          //console.log("countries -> " + this.languages);
       });
 
       this.authService.recoverUserData().then((registerResult) => {
-        console.log('ok recoverUserData');
+        //console.log('ok recoverUserData');
         //no hace falta logearse, porque el usuario está inactivo hasta que reciba el mail y haga
         //click en el enlace, sólo después de esa acción el usuario está en disposición de hacer
         //un login.... por esto comento este trozo de código....
@@ -60,7 +60,7 @@ export class UserPage {
         this.registerRs = registerData;
         //transformo a lower el idioma
         this.registerRs.language = this.registerRs.language.toLowerCase();
-          console.log("Datos -> " + JSON.stringify(this.registerRs));
+          //console.log("Datos -> " + JSON.stringify(this.registerRs));
       }, (err:IDetailedError<string[]>) => {
         let errors = '';
         for(let e of err.details) {
@@ -82,11 +82,11 @@ export class UserPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserPage ' + localStorage.getItem('user'));
+    //console.log('ionViewDidLoad UserPage ' + localStorage.getItem('user'));
   }
 
   doUpdateUserInfo(){
-    console.log("doUpdateUserInfo....")
+    //console.log("doUpdateUserInfo....")
 
     if(
     this.registerRs.name === '' || this.registerRs.name === undefined
@@ -115,7 +115,7 @@ export class UserPage {
     userInfo.language = this.registerRs.language;
 
     this.authService.modifyUserData(userInfo).then((registerResult) => {
-      console.log('ok modificar datos usuario');
+      //console.log('ok modificar datos usuario');
       let registerData: any = registerResult;
       this.registerRs = registerData;
       let alert = this.alertCtrl.create({

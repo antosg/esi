@@ -27,11 +27,11 @@ export class ResetpasswordPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ResetpasswordPage');
+    //console.log('ionViewDidLoad ResetpasswordPage');
   }
 
   sendEmailReset() {
-    console.log("sending email for reset....");
+    //console.log("sending email for reset....");
 
       if(this.loginRq.email === '' || this.loginRq.email === undefined) {
         let alert = this.alertCtrl.create({
@@ -51,7 +51,7 @@ export class ResetpasswordPage {
       loader.present();
 
       this.authService.forgot(this.registerRq).then((registerResult) => {
-        console.log('ok register');
+        //console.log('ok register');
         let registerData: any = registerResult;
         this.registerRs = registerData;
         let alert = this.alertCtrl.create({
@@ -66,7 +66,7 @@ export class ResetpasswordPage {
         loader.dismissAll();
         let errors = '';
         for(let e of err.details) {
-          console.log(e);
+          //console.log(e);
           if(e === 'required_email') errors += '^Email is required.<br/>';
           if(e === 'invalid_email') errors += 'Your email address isn\'t valid.';
         }

@@ -41,15 +41,15 @@ export class RepServices {
     }
 
     retrieveUserRep(email: string){
-        console.log("retrieveUserrep -> " + email);
+        //console.log("retrieveUserrep -> " + email);
         this.data = null;
         var dummyRetrieveObject = email;
         if (this.data != null){
-          console.log("retrieveUserrep1");
+          //console.log("retrieveUserrep1");
             return Promise.resolve(this.data);
         }
         return new Promise(resolve => {
-          console.log(url + " / " + retrieveUser + " / " + dummyRetrieveObject);
+          //console.log(url + " / " + retrieveUser + " / " + dummyRetrieveObject);
             this.http.get(url + retrieveUser + dummyRetrieveObject)
             .map(res => res.json())
             .subscribe(data => {
