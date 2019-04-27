@@ -1,25 +1,21 @@
 import { Component,ViewChild  } from '@angular/core';
-import { NavController, Platform, Nav, MenuController, AlertController, Events, App } from 'ionic-angular';
+import { Platform, Nav, MenuController, AlertController, Events, App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RepServices } from './providers/rep-services';
 
-import { TaskListPage } from '../pages/tasklist/tasklist';
 import { HomePage } from '../pages/home/home';
 import { LoginPage} from './_login/index';
-import { SearchUserPage } from '../pages/searchuser/searchuser';
 import { RegisterPage } from '../pages/register/register';
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { UserPage } from '../pages/user/user';
 import { AboutPage } from '../pages/about/about';
 import { SuggestionPage } from '../pages/suggestion/suggestion';
-import { StatisticsPage } from '../pages/statistics/statistics';
-import { WeekstatsPage } from '../pages/weekstats/weekstats';
 import { GroupsPage } from '../pages/groups/groups';
 import { StatsaccessPage } from '../pages/statsaccess/statsaccess'
 import { InvitationsPage } from '../pages/invitations/invitations';
 import { AuthService } from './_services/index';
-import { userPreferencesRq, userPreferencesRsp } from './_dtos/index';
+import { userPreferencesRsp } from './_dtos/index';
 
 import { TranslateService } from '@ngx-translate/core';
 import {LoginRs} from './_dtos/index';
@@ -139,7 +135,6 @@ export class MyApp {
           //let nav = app.getActiveNavs()[0];
           //console.log("registerBackButtonAction2");
           let activeView = this.nav.getActive();
-          let activeNav = this.app.getActiveNav();
           //console.log("registerBackButtonAction3");
 
           if(activeView.name === "HomePage") {

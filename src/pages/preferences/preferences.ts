@@ -9,7 +9,7 @@ import { AuthService } from '../../app/_services/index';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import { userPreferencesRq, userPreferencesRsp } from '../../app/_dtos/index';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { IDetailedError } from '@ionic/cloud-angular';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Events } from 'ionic-angular';
 

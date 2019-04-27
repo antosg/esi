@@ -2,13 +2,12 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import {TransactionService} from '../../app/_services/index';
 import {InquiriesByDayRsp, commentDto} from '../../app/dtos/inquiry';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
-import { NavController , AlertController, LoadingController, ToastController, MenuController} from 'ionic-angular';
+import { IDetailedError } from '@ionic/cloud-angular';
+import { NavController , AlertController} from 'ionic-angular';
 
 import { WeekstatsPage } from '../../pages/weekstats/weekstats';
-import {RegisterGroupStatsRs, LoginRs, RegisterGroupRs} from '../../app/_dtos/index';
+import {RegisterGroupStatsRs, RegisterGroupRs} from '../../app/_dtos/index';
 import { Http } from '@angular/http';
-import { Headers } from '@angular/http';
 
 import { Chart } from 'chart.js';
 

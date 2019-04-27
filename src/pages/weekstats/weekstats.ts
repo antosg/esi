@@ -2,13 +2,13 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import { TransactionService} from '../../app/_services/index';
 import { InquiriesByWeekRsp} from '../../app/dtos/inquiry';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
-import { NavController , AlertController, LoadingController, ToastController, MenuController} from 'ionic-angular';
+import { IDetailedError } from '@ionic/cloud-angular';
+import { NavController , AlertController } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
 
-import {RegisterGroupStatsRs, LoginRs, RegisterGroupRs} from '../../app/_dtos/index';
-import {InquiriesByDayRsp, commentDto} from '../../app/dtos/inquiry';
+import {RegisterGroupStatsRs, RegisterGroupRs} from '../../app/_dtos/index';
+import { commentDto } from '../../app/dtos/inquiry';
 
 /**
  * Generated class for the StatisticsPage page.
@@ -96,7 +96,6 @@ export class WeekstatsPage {
     var linea_q3 = [];
     var linea_aceptabilidad = [];
     var numInq = 0;
-    var arrC = [];
 
     //console.log("MyDatePicker -> " + this.MyDatePicker);
     var x = new Date();

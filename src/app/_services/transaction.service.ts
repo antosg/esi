@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {TransactionRq, TransactionRs, LoginRs} from '../_dtos/index';
+import {TransactionRq, LoginRs} from '../_dtos/index';
 import {InquiryRq} from '../dtos/inquiry';
 
 //client url

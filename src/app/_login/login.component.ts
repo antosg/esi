@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, ToastController, MenuController, Events  } from 'ionic-angular';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { HomePage } from '../../pages/home/home';
 import { RegisterPage } from '../../pages/register/register';
 import { ResetpasswordPage } from '../../pages/resetpassword/resetpassword';
 import { RepServices } from '../providers/rep-services';
-import { SearchUserPage } from '../../pages/searchuser/searchuser';
-import {AuthService} from '../_services/index';
-import {MapperDto} from '../_mapper/index';
-import {LoginRs, UserLoginDto, LoginRq} from '../_dtos/index';
+import { AuthService } from '../_services/index';
+import { MapperDto } from '../_mapper/index';
+import { LoginRq } from '../_dtos/index';
 
 @Component({
   selector: 'page-login',
@@ -140,7 +138,7 @@ export class LoginPage {
       localStorage.setItem('token', this.data.token);
       localStorage.setItem('user', JSON.stringify(this.data));
       this.enableMenu(true);
-      let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
+      //let loginRs: LoginRs = JSON.parse(localStorage.getItem('user'));
        //console.log(loginRs);
        this.navCtrl.setRoot(HomePage);
     }, (err) => {

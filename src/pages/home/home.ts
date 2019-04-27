@@ -1,7 +1,6 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { NavController , AlertController, LoadingController, ToastController, MenuController} from 'ionic-angular';
 import { TaskListPage } from '../tasklist/tasklist';
-import { LoginPage } from '../../app/_login';
 import { SearchUserPage } from '../searchuser/searchuser';
 import {TransactionCreatePage} from '../transaction/transactionCreate';
 import {TransactionInfoPage} from '../transaction/transactionInfo';
@@ -9,12 +8,11 @@ import {TransactionAcceptPage} from '../transaction/transactionAccept';
 import {TransactionValoratePage} from '../transaction/transactionValorate';
 import {TransactionGetAllPage} from '../transaction/transactionGetAll';
 import { RepServices } from '../../app/providers/rep-services';
-import { StatisticsPage } from '../../pages/statistics/statistics';
 import {TransactionService} from '../../app/_services/index';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { IDetailedError } from '@ionic/cloud-angular';
 import { Http } from '@angular/http';
 
-import {LoginRs, UserLoginDto, LoginRq, TransactionRs} from '../../app/_dtos/index';
+import {LoginRs, TransactionRs} from '../../app/_dtos/index';
 import {AuthService} from '../../app/_services/index';
 import {MapperDto} from '../../app/_mapper/index';
 import {UserInfoDto} from '../../app/dtos/userinfo';

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
-import { HomePage } from '../../pages/home/home';
+import { IDetailedError } from '@ionic/cloud-angular';
 import { LoginPage} from '../../app/_login/index';
 import {AuthService} from '../../app/_services/index';
 import {MapperDto} from '../../app/_mapper/index';
 import {TermsPage} from '../../pages/terms/terms';
-import {RegisterRq, RegisterRs, LoginRq, LoginRs} from '../../app/_dtos/index';
+import {RegisterRq, RegisterRs} from '../../app/_dtos/index';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 

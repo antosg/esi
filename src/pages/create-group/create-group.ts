@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController  } from 'ionic-angular';
-import { UserDetails, IDetailedError } from '@ionic/cloud-angular';
-import { Http } from '@angular/http';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { IDetailedError } from '@ionic/cloud-angular';
 
 import {RegisterGroupRq, LoginRs, RegisterGroupRs} from '../../app/_dtos/index';
 import {AuthService} from '../../app/_services/index';
-import { GroupsPage} from '../groups/groups';
 
 
 /**
@@ -75,7 +73,6 @@ export class CreateGroupPage {
             handler: data => {
               //console.log('ok clicked');
               if (this.checkEmail(data.email)){
-                var itemAux = { "email" : data.email };
                 let pos = this.items.map(function(e) { return e.email; }).indexOf(data.email);
                 //console.log(itemAux + " este mail está -> " + pos);
                 if (pos == -1){
