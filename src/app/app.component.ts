@@ -201,6 +201,7 @@ export class MyApp {
   }
 
   openPage(page) {
+    //console.log("open page");
     if (!page.component){
       //console.log("no me llega página... por lo que debería ser un logout...");
       //Si lo hemos hecho bien, esto es el logout.....
