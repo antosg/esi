@@ -64,7 +64,9 @@ export class GroupsPage {
       });
       alert.present();
     });
+
   }
+
 
   navStatistics(grupo){
     //console.log("el grupo es -> " + grupo);
@@ -73,7 +75,7 @@ export class GroupsPage {
 
   createNewGroup(){
     //console.log("creando un nuevo grupo -> " + this.number_of_groups + " - " + this.groups.length);
-    if (this.groups.length <= this.number_of_groups){
+    if (this.groups.length < this.number_of_groups){
       this.navCtrl.push(CreateGroupPage);
     }else{
       let alert = this.alertCtrl.create({

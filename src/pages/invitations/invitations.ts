@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, Events} from 'ionic-angular';
 import { Http } from '@angular/http';
 import { TransactionService } from '../../app/_services/index';
 import { IDetailedError } from '@ionic/cloud-angular';
@@ -26,8 +26,13 @@ export class InvitationsPage {
       public http: Http,
       public alertCtrl: AlertController,
       public loadingCtrl:LoadingController,
-      public TransactionService: TransactionService) {
+      public TransactionService: TransactionService,
+          public events: Events) {
   }
+
+  upodateNotificationsEvent(val){
+    this.events.publish('updateNotificationsNumber', val);
+}
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad InvitationsPage');
@@ -37,6 +42,7 @@ export class InvitationsPage {
       this.RegisterInvitationsRs = registerData;
       //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
       this.invitations = this.RegisterInvitationsRs;
+      this.upodateNotificationsEvent(this.invitations.length);
     }, (err:IDetailedError<string[]>) => {
       let errors = '';
       for(let e of err.details) {
@@ -90,6 +96,7 @@ export class InvitationsPage {
     let pos = this.invitations.indexOf(item);
     //console.log("pos -> " + pos);
     this.invitations.splice(pos, 1);
+    this.upodateNotificationsEvent(this.invitations.length);
   }
 
 }

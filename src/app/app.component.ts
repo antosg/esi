@@ -21,6 +21,9 @@ import { TranslateService } from '@ngx-translate/core';
 import {LoginRs} from './_dtos/index';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import { TransactionService } from './_services/index';
+import {RegisterInvitationsRs} from './_dtos/index';
+
 export interface PageInterface {
   title: string;
   name: string;
@@ -47,7 +50,10 @@ export class MyApp {
   loginRs: LoginRs;
   nameMenu: string;
   userPreferencesRsp: userPreferencesRsp = new userPreferencesRsp();
-    newImg : any;
+  newImg : any;
+  IsThereNotifications : any;
+  RegisterInvitationsRs: RegisterInvitationsRs = new RegisterInvitationsRs();
+  invitations: any = [];
 
   appPages: PageInterface[] = [
   ];
@@ -78,7 +84,21 @@ export class MyApp {
     public events: Events,
     public app: App,
     private sanitizer: DomSanitizer,
-    public menu: MenuController) {
+    public menu: MenuController,
+    public TransactionService: TransactionService) {
+
+      this.TransactionService.getInvitations().then((registerResult) => {
+        //console.log('ok getGroups');
+        let registerData: any = registerResult;
+        this.RegisterInvitationsRs = registerData;
+        //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
+        this.invitations = this.RegisterInvitationsRs;
+        this.IsThereNotifications = this.invitations.length;
+      });
+
+      events.subscribe('updateNotificationsNumber', (val) => {
+        this.IsThereNotifications = val;
+      });
 
     //Definimos el idioma por defecto
     let val = localStorage.getItem('languageApp');
