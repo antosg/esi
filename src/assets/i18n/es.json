@@ -64,5 +64,6 @@
   "FORGOT_PWD" : "¿Has olvidado tu password?",
   "FORGOT_PWD_QUESTION": "Introduza su email",
   "FORGOT_PWD_SEND": "Enviar email",
-  "CHOOSE_GROUP" : "Seleccionar un grupo para el que desea enviar la encuesta:"
+  "CHOOSE_GROUP" : "Seleccionar un grupo para el que desea enviar la encuesta:",
+  "WELCOME" : "Bienvenido"
 }

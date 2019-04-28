@@ -13,7 +13,7 @@ import { IDetailedError } from '@ionic/cloud-angular';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Events } from 'ionic-angular';
 
-declare const FCMPlugin: any;
+//declare const FCMPlugin: any;
 
 /**
  * Generated class for the PreferencesPage page.
@@ -154,6 +154,7 @@ export class PreferencesPage {
     localStorage.setItem('languageApp', this.languageApp);
     this.regData.language = this.languageApp;
 
+/*
     FCMPlugin.onTokenRefresh(function(token){
       //console.log("token generado...." + token );
       this.token = token;
@@ -162,17 +163,19 @@ export class PreferencesPage {
     FCMPlugin.getToken(function(token){
         this.regData.token = this.token;
     });
+*/
 
+    this.activateNotification = false;
     if (this.activateNotification){
       //console.log("checked true...");
       localStorage.setItem('topic', 'notificar');
       this.regData.swipush = "S";
-      FCMPlugin.subscribeToTopic('notificar');
+      //FCMPlugin.subscribeToTopic('notificar');
     }else{
       //console.log("checked false...");
       localStorage.setItem('topic', 'nonotificar');
       this.regData.swipush = "N";
-      FCMPlugin.unsubscribeFromTopic('notificar');
+      //FCMPlugin.unsubscribeFromTopic('notificar');
     }
 
     let userData : userPreferencesRq = new userPreferencesRq();
