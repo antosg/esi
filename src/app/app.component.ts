@@ -19,7 +19,6 @@ import { userPreferencesRsp } from './_dtos/index';
 
 import { TranslateService } from '@ngx-translate/core';
 import {LoginRs} from './_dtos/index';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { TransactionService } from './_services/index';
 import {RegisterInvitationsRs} from './_dtos/index';
@@ -83,18 +82,8 @@ export class MyApp {
     public authService: AuthService,
     public events: Events,
     public app: App,
-    private sanitizer: DomSanitizer,
     public menu: MenuController,
     public TransactionService: TransactionService) {
-
-      this.TransactionService.getInvitations().then((registerResult) => {
-        //console.log('ok getGroups');
-        let registerData: any = registerResult;
-        this.RegisterInvitationsRs = registerData;
-        //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
-        this.invitations = this.RegisterInvitationsRs;
-        this.IsThereNotifications = this.invitations.length;
-      });
 
       events.subscribe('updateNotificationsNumber', (val) => {
         this.IsThereNotifications = val;
@@ -143,6 +132,15 @@ export class MyApp {
         if (this.userPreferencesRsp.preferences.avatar != null && this.userPreferencesRsp.preferences.avatar != ""){
           this.newImg = this.userPreferencesRsp.preferences.avatar;
         }
+      });
+
+      this.TransactionService.getInvitations().then((registerResult) => {
+        //console.log('ok getGroups');
+        let registerData: any = registerResult;
+        this.RegisterInvitationsRs = registerData;
+        //console.log("Datos -> " + JSON.stringify(this.RegisterInvitationsRs));
+        this.invitations = this.RegisterInvitationsRs;
+        this.IsThereNotifications = this.invitations.length;
       });
     });
 

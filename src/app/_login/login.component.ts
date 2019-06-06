@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController, MenuController, Events  } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, MenuController, Events  } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
 import { RegisterPage } from '../../pages/register/register';
 import { ResetpasswordPage } from '../../pages/resetpassword/resetpassword';
@@ -29,7 +29,6 @@ export class LoginPage {
     public alertCtrl: AlertController,
     public loadingCtrl:LoadingController,
   private repServices: RepServices,
-  private toastCtrl: ToastController,
   public authService: AuthService,
       public events: Events,
   public mapper: MapperDto, public menu: MenuController) {

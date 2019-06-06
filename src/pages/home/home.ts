@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
-import { NavController , AlertController, LoadingController, ToastController, MenuController} from 'ionic-angular';
+import { NavController , AlertController, LoadingController, MenuController} from 'ionic-angular';
 import { TaskListPage } from '../tasklist/tasklist';
 import { SearchUserPage } from '../searchuser/searchuser';
 import {TransactionCreatePage} from '../transaction/transactionCreate';
@@ -14,7 +14,6 @@ import { Http } from '@angular/http';
 
 import {LoginRs, TransactionRs} from '../../app/_dtos/index';
 import {AuthService} from '../../app/_services/index';
-import {MapperDto} from '../../app/_mapper/index';
 import {UserInfoDto} from '../../app/dtos/userinfo';
 import {UserInfoMapper} from '../../app/mapper/userinfomapper';
 import {InquiryRq} from '../../app/dtos/inquiry';
@@ -49,13 +48,11 @@ lineChart: any;
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public loadingCtrl:LoadingController,
-    private toastCtrl: ToastController,
     public menu: MenuController,
     public transactionService: TransactionService,
     public repServices: RepServices,
     public events: Events,
     public authService: AuthService,
-    public mapper: MapperDto,
     public http: Http) {
 
       var today = new Date();

@@ -3,14 +3,12 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 
 import { AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { Device } from '@ionic-native/device';
 import { AuthService } from '../../app/_services/index';
 
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import { userPreferencesRq, userPreferencesRsp } from '../../app/_dtos/index';
 import { IDetailedError } from '@ionic/cloud-angular';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Events } from 'ionic-angular';
 
 //declare const FCMPlugin: any;
@@ -40,18 +38,13 @@ export class PreferencesPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private device: Device,
     private alertCtrl: AlertController,
     public translate: TranslateService,
     public loadingCtrl:LoadingController,
     private imagePicker: ImagePicker,
     private base64: Base64,
     public events: Events,
-    private sanitizer: DomSanitizer,
     public authService: AuthService) {
-
-      //console.log('Device UUID is: ' + this.device.uuid);
-      //this.token = this.device.uuid;
 
   }
 

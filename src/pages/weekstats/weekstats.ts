@@ -141,7 +141,6 @@ export class WeekstatsPage {
           this.num_cc = 0;
 
           for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
-            //console.log("comentario " + i + " -> " + JSON.stringify(this.InquiriesByWeekRsp.comments[i]));
             var arrC = this.InquiriesByWeekRsp.comments[i];
             //console.log("coentario en < " + arrC.length);
             for (var k = 0; k < arrC.length; k++){

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { IDetailedError } from '@ionic/cloud-angular';
 import { LoginPage} from '../../app/_login/index';
 import {AuthService} from '../../app/_services/index';
-import {MapperDto} from '../../app/_mapper/index';
 import {TermsPage} from '../../pages/terms/terms';
 import {RegisterRq, RegisterRs} from '../../app/_dtos/index';
 import { Http } from '@angular/http';
@@ -26,9 +25,7 @@ export class RegisterPage {
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
     public loadingCtrl:LoadingController,
-    private toastCtrl: ToastController,
     public authService: AuthService,
-    private mapper: MapperDto,
     public http: Http) {
     this.http.get('https://reponline.herokuapp.com/masters/languages/en').map(res => res.json()).subscribe(data => {
         this.languages = data.items;

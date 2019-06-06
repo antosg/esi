@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { IDetailedError } from '@ionic/cloud-angular';
 import {TransactionService} from '../../app/_services/index';
-import {MapperDto} from '../../app/_mapper/index';
 import {TransactionRs } from '../../app/_dtos/index';
 
 @Component({
@@ -17,7 +16,7 @@ export class TransactionInfoPage {
 
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public loadingCtrl:LoadingController,
-  private toastCtrl: ToastController, public transactionService: TransactionService, private mapper: MapperDto) {}
+  public transactionService: TransactionService) {}
 
   ionViewDidLoad() {
     //console.log('Hello TransactionInfoPage Page');
