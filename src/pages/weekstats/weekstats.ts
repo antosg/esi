@@ -140,8 +140,8 @@ export class WeekstatsPage {
           this.cc = "";
           this.num_cc = 0;
 
-          for (var i = 0; i < this.InquiriesByWeekRsp.comments.length; i++) {
-            var arrC = this.InquiriesByWeekRsp.comments[i];
+          for (var ii = 0; ii < this.InquiriesByWeekRsp.comments.length; ii++) {
+            var arrC = this.InquiriesByWeekRsp.comments[ii];
             //console.log("coentario en < " + arrC.length);
             for (var k = 0; k < arrC.length; k++){
               this.commentDto = arrC[k];
